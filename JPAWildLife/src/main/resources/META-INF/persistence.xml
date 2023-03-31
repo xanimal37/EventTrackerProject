@@ -6,7 +6,7 @@
 	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 	
 	<!-- begin entities -->
-    <class>com.skilldistillery.xtreme.entities.Animal</class>
+    <class>com.skilldistillery.wildlife.entities.Animal</class>
      
     <!-- end entities -->
     
