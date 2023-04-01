@@ -27,8 +27,7 @@ public class AnimalServiceImpl implements AnimalService {
 
 	@Override
 	public Animal createAnimal(Animal animal) {
-		// TODO Auto-generated method stub
-		return null;
+		return animalRepo.saveAndFlush(animal);
 	}
 
 	@Override
@@ -39,8 +38,13 @@ public class AnimalServiceImpl implements AnimalService {
 
 	@Override
 	public boolean deleteAnimalById(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean wasDeleted = false;
+		Animal animal = animalRepo.findById(id);
+		if(animal!=null) {
+			animalRepo.delete(animal);
+			wasDeleted = true;
+		}
+		return wasDeleted;
 	}
 
 	
