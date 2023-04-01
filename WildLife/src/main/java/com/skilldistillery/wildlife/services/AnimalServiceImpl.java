@@ -1,7 +1,6 @@
 package com.skilldistillery.wildlife.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,8 +31,14 @@ public class AnimalServiceImpl implements AnimalService {
 
 	@Override
 	public Animal updateAnimal(int id, Animal animal) {
-		// TODO Auto-generated method stub
+		Animal original = animalRepo.findById(id);
+		if(original!=null && animal!=null) {
+			original.setNickname(animal.getNickname());
+			//this method will see the id and know to update
+			return animalRepo.saveAndFlush(original);
+		}
 		return null;
+		
 	}
 
 	@Override
@@ -46,6 +51,15 @@ public class AnimalServiceImpl implements AnimalService {
 		}
 		return wasDeleted;
 	}
-
+	
+	@Override
+	public List<Animal> findByNickname(String nName){
+		
+		if(nName!=null) {
+			String search = "%"+nName+"%";
+			return animalRepo.findByNicknameLike(search);
+		}
+		return null;
+	}
 	
 }

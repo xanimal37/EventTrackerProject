@@ -16,4 +16,6 @@ public interface AnimalService {
 	
 	boolean deleteAnimalById(int id);
 
+	List<Animal> findByNickname(String nName);
+
 }

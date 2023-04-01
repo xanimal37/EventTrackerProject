@@ -10,13 +10,28 @@ This project is the backend of an app that tracks animals handled wildlife rehab
 - when its enclosure has been cleaned
 - more tbd...
 
+## Entities
+- Animal (CREATE, UPDATE, DELETE, GET BY ID, GET ALL, SEARCH BY NICKNAME)
+- Enclosure
+
+### Dictionary
+- Species
+- Conservation Status
+
+### Events
+- Enclosure Maintenance
+- Animal Treatment
+- Animal Feeding
+
 ## Technologies Used
 - JAVA
 - Spring Boot
+- Spring Data
 - REST API
 - Gradle
 - git
 
 ## Lessons Learned
+- start with simple db, classes and methods and build
 
 ## Things to Improve
