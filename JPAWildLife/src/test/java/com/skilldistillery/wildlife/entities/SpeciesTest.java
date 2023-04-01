@@ -31,7 +31,7 @@ class SpeciesTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		species = em.find(Species.class, 1);
+		species = em.find(Species.class, 37);
 	}
 
 	@AfterEach
@@ -43,7 +43,13 @@ class SpeciesTest {
 	@Test
 	void test_Species_mapping() {
 		assertNotNull(species);
-		assertEquals("White-tailed Deer",species.getName());
+		assertEquals("Great Horned Owl",species.getName());
+	}
+	
+	@Test
+	void test_Species_Animal_mapping() {
+		assertNotNull(species);
+		assertEquals("Crunchy",species.getAnimals().get(0).getNickname());
 	}
 
 }

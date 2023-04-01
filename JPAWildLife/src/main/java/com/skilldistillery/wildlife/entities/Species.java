@@ -1,5 +1,6 @@
 package com.skilldistillery.wildlife.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Species {
@@ -24,9 +25,17 @@ public class Species {
 	@Column(name="image_url")
 	private String imageURL;
 	//relationships
-	@OneToOne(mappedBy="species")
-    private Animal animal;
+	@OneToMany(mappedBy="species")
+    private List<Animal> animals;
 	
+	public List<Animal> getAnimals() {
+		return animals;
+	}
+
+	public void setAnimals(List<Animal> animals) {
+		this.animals = animals;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -75,14 +84,6 @@ public class Species {
 
 	public void setImageURL(String imageURL) {
 		this.imageURL = imageURL;
-	}
-
-	public Animal getAnimal() {
-		return animal;
-	}
-
-	public void setAnimal(Animal animal) {
-		this.animal = animal;
 	}
 
 	@Override

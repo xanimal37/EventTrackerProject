@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -30,7 +30,7 @@ public class Animal {
 	@Column(name="stay_ended")
 	private LocalDate stayEnded;
 	//relationships
-	@OneToOne
+	@ManyToOne
     @JoinColumn(name="species_id")
 	private Species species;
 	
@@ -70,6 +70,15 @@ public class Animal {
 	}
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
+	}
+	
+
+	public Species getSpecies() {
+		return species;
+	}
+
+	public void setSpecies(Species species) {
+		this.species = species;
 	}
 
 	@Override
