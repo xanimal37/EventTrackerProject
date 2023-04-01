@@ -13,9 +13,9 @@ This project is the backend of an app that tracks animals handled wildlife rehab
 ## Entities
 - Animal (CREATE, UPDATE, DELETE, GET BY ID, GET ALL, SEARCH BY NICKNAME)
 - Enclosure
+- Species (GET ALL)
 
 ### Dictionary
-- Species
 - Conservation Status
 
 ### Events
