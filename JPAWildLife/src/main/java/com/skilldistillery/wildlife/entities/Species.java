@@ -30,6 +30,9 @@ public class Species {
 	@OneToMany(mappedBy="species")
 	@JsonIgnore
     private List<Animal> animals;
+//	@ManyToOne
+//	@JoinColumn(name="conservation_status_id")
+//	private ConservationStatus conservationStatus;
 	
 	public List<Animal> getAnimals() {
 		return animals;

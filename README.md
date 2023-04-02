@@ -10,6 +10,8 @@ This project is the backend of an app that tracks animals handled wildlife rehab
 - when its enclosure has been cleaned
 - more tbd...
 
+This app lacks a front end and all results are formatted as JSON.
+
 ## Entities
 - Animal (CREATE, UPDATE, DELETE, GET BY ID, GET ALL, SEARCH BY NICKNAME)
 - Enclosure
@@ -28,6 +30,7 @@ This project is the backend of an app that tracks animals handled wildlife rehab
 - Spring Boot
 - Spring Data
 - REST API
+- JSON
 - Gradle
 - git
 

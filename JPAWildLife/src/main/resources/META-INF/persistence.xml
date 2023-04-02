@@ -8,6 +8,7 @@
 	<!-- begin entities -->
     <class>com.skilldistillery.wildlife.entities.Animal</class>
     <class>com.skilldistillery.wildlife.entities.Species</class>
+    <class>com.skilldistillery.wildlife.entities.ConservationStatus</class>
     <!-- end entities -->
     
     <properties>
