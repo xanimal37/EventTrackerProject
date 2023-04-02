@@ -9,6 +9,7 @@
     <class>com.skilldistillery.wildlife.entities.Animal</class>
     <class>com.skilldistillery.wildlife.entities.Species</class>
     <class>com.skilldistillery.wildlife.entities.ConservationStatus</class>
+    <class>com.skilldistillery.wildlife.entities.Feeding</class>
     <!-- end entities -->
     
     <properties>

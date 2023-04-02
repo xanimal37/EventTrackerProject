@@ -36,5 +36,6 @@ This app lacks a front end and all results are formatted as JSON.
 
 ## Lessons Learned
 - start with simple db, classes and methods and build
+- RESTART SPRING BOOT AFTER CHANGES
 
 ## Things to Improve
