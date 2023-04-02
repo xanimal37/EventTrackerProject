@@ -51,5 +51,11 @@ class SpeciesTest {
 		assertNotNull(species);
 		assertEquals("Crunchy",species.getAnimals().get(0).getNickname());
 	}
+	
+	@Test
+	void test_Species_ConservationStatus_mapping() {
+		assertNotNull(species);
+		assertEquals("LEAST CONCERN",species.getConservationStatus().getStatus());
+	}
 
 }
