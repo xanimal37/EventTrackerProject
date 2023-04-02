@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -24,6 +26,17 @@ public class Feeding {
 	private LocalDateTime whenFed;
 	private String employee;
 	private String observation;
+	@ManyToOne
+	@JoinColumn(name="animal_id")
+	private Animal animal;
+
+	public Animal getAnimal() {
+		return animal;
+	}
+
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
+	}
 
 	public int getId() {
 		return id;

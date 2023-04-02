@@ -1,6 +1,7 @@
 package com.skilldistillery.wildlife.entities;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,8 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Animal {
@@ -33,7 +37,18 @@ public class Animal {
 	@ManyToOne
     @JoinColumn(name="species_id")
 	private Species species;
+	@OneToMany(mappedBy="animal")
+	@JsonIgnore
+	private List<Feeding> feedings;
 	
+	public List<Feeding> getFeedings() {
+		return feedings;
+	}
+
+	public void setFeedings(List<Feeding> feedings) {
+		this.feedings = feedings;
+	}
+
 	public LocalDate getStayBegan() {
 		return stayBegan;
 	}

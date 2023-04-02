@@ -46,5 +46,11 @@ public class FeedingTest {
 		assertNotNull(feeding);
 		assertEquals("JGK",feeding.getEmployee());
 	}
+	
+	@Test
+	void test_Feeding_Animal_mapping() {
+		assertNotNull(feeding);
+		assertEquals("Crunchy",feeding.getAnimal().getNickname());
+	}
 
 }
