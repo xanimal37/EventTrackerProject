@@ -15,6 +15,21 @@ This app lacks a front end and all results are formatted as JSON.
 - Feeding (GET ALL BY ANIMAL ID, GET BY ANIMAL ID AND DATE/TIME RANGE)
 - Species (GET ALL)
 
+## REST API
+| HTTP Verb | URI                        | Request Body                           | Response Body                                           |
+|-----------|----------------------------|----------------------------------------|---------------------------------------------------------|
+| GET       | `/api/animals`             |                                        | Coll. of representations of all _animal_ resources      |
+| GET       | `/api/animals/2`           |                                        | Rep.of _animal_ `2`                                     |
+| POST      | `/api/animals`             | Rep. of a new _animal_ resource        |                                                         |
+| PUT       | `/api/animals/2`           | Rep. of a new version of _animal_ `2`  |                                                         |
+| DELETE    | `/api/animals/2`           |                                        |                                                         |
+| GET       | `/api/animals/species/100` |                                        | Coll. of rep. of _animal_ of _species_ `100`           | 
+| GET       | `api/animals/1/feedings`   |                                        | Coll. of rep. of _feeding_ for _animal_ `1`            | 
+| GET       | `api/species/89`           |                                        | Rep. of _species_ `89` |
+| GET       | `api/animals/search/p`     |                                        | Coll. of rep of _animal_ with nickname like `p`  |
+
+ *** GET `/api/animals/species/100` should be remapped to species/100/animals ***
+
 ### Dictionary
 - Conservation Status
 
