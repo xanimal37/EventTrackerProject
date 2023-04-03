@@ -27,6 +27,7 @@ This app lacks a front end and all results are formatted as JSON.
 | GET       | `api/animals/1/feedings`   |                                        | Coll. of rep. of _feeding_ for _animal_ `1`            | 
 | GET       | `api/species/89`           |                                        | Rep. of _species_ `89` |
 | GET       | `api/animals/search/p`     |                                        | Coll. of rep of _animal_ with nickname like `p`  |
+| GET | `api/animals/1/feedings/2023-02-09 13:00:00/2023-02-11 12:00:00` |   | Coll. of rep of _feeding_ in date range |
 
  *** GET `/api/animals/species/100` should be remapped to species/100/animals ***
 
