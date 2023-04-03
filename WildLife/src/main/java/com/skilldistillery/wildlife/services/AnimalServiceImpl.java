@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.wildlife.entities.Animal;
+import com.skilldistillery.wildlife.entities.Species;
 import com.skilldistillery.wildlife.repositories.AnimalRepository;
 
 @Service
@@ -60,6 +61,11 @@ public class AnimalServiceImpl implements AnimalService {
 			return animalRepo.findByNicknameLike(search);
 		}
 		return null;
+	}
+
+	@Override
+	public List<Animal> getAllAnimalsOfSpecies(Species s) {
+		return animalRepo.findBySpecies(s);
 	}
 	
 }

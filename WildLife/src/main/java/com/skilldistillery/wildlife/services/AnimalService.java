@@ -3,6 +3,7 @@ package com.skilldistillery.wildlife.services;
 import java.util.List;
 
 import com.skilldistillery.wildlife.entities.Animal;
+import com.skilldistillery.wildlife.entities.Species;
 
 public interface AnimalService {
 	
@@ -17,5 +18,7 @@ public interface AnimalService {
 	boolean deleteAnimalById(int id);
 
 	List<Animal> findByNickname(String nName);
+	
+	List<Animal> getAllAnimalsOfSpecies(Species s);
 
 }

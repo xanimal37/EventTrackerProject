@@ -11,7 +11,7 @@ This project is the backend of an app that tracks animals handled wildlife rehab
 This app lacks a front end and all results are formatted as JSON.
 
 ## Entities
-- Animal (CREATE, UPDATE, DELETE, GET BY ID, GET ALL, SEARCH BY NICKNAME)
+- Animal (CREATE, UPDATE, DELETE, GET BY ID, GET ALL, SEARCH BY NICKNAME, GET ALL ANIMALS OF SPECIES)
 - Feeding (GET ALL BY ANIMAL ID, GET BY ANIMAL ID AND DATE/TIME RANGE)
 - Species (GET ALL)
 
@@ -36,12 +36,15 @@ This app lacks a front end and all results are formatted as JSON.
 ## Lessons Learned
 - start with simple db, classes and methods and build
 - RESTART SPRING BOOT AFTER CHANGES
-- a column called "date_and_time" will cause problems with Spring Data when attempting to name method findByAnimalIDAndDateAndTime()... renamed to "whenFed"
+- a field called "somethingANDsomething" will cause problems with Spring Data when attempting to name method findByAnimalIDAndDateAndTime()... renamed to "whenFed"
 - postman will do random variables with ${}
-- use @DateTimeFormat with pattern
+- use @PathVariable(value=...) @DateTimeFormat with pattern
 - can use date for range query
 
 ## Things to Improve
 - add enclosure and track cleaning/maintenance
 - add medical care tracking table
+- more updates
+- fill out database
+- work on some more complicated queries
 - front end...

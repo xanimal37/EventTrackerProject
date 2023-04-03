@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.wildlife.entities.Animal;
+import com.skilldistillery.wildlife.entities.Species;
 import com.skilldistillery.wildlife.services.AnimalService;
+import com.skilldistillery.wildlife.services.SpeciesService;
 
 @RestController
 @RequestMapping("api")
@@ -24,6 +26,8 @@ public class AnimalController {
 
 	@Autowired
 	private AnimalService animalService;
+	@Autowired
+	private SpeciesService speciesService;
 
 	@GetMapping(path = "animals")
 	List<Animal> getAnimals() {
@@ -74,26 +78,44 @@ public class AnimalController {
 			res.setStatus(400);
 		}
 	}
-	
+
 	// update animal
 	@PutMapping(path = "animals/{id}")
 	public Animal update(@PathVariable int id, @RequestBody Animal animal, HttpServletResponse res) {
 
-			try {
-				animal = animalService.updateAnimal(id, animal);
-				if (animal == null) {
-					res.setStatus(404);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-				res.setStatus(400);
-				animal = null;
+		try {
+			animal = animalService.updateAnimal(id, animal);
+			if (animal == null) {
+				res.setStatus(404);
 			}
-			return animal;
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.setStatus(400);
+			animal = null;
+		}
+		return animal;
 	}
-	
-	@GetMapping(path="animals/search/{nName}")
-	public List<Animal> nicknameSearch(@PathVariable String nName){
+
+	@GetMapping(path = "animals/search/{nName}")
+	public List<Animal> nicknameSearch(@PathVariable String nName) {
 		return animalService.findByNickname(nName);
+	}
+
+	@GetMapping(path = "animals/species/{id}")
+	public List<Animal> animalsBySpecies(@PathVariable int id, HttpServletResponse res) {
+
+		List<Animal> animals = null;
+		try {
+			Species species = speciesService.findById(id);
+			if (species == null) {
+				res.setStatus(404);
+			} else {
+				animals = animalService.getAllAnimalsOfSpecies(species);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.setStatus(400);
+		}
+		return animals;
 	}
 }

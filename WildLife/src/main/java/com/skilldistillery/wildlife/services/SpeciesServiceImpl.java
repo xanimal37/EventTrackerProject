@@ -21,9 +21,8 @@ public class SpeciesServiceImpl implements SpeciesService{
 	}
 
 	@Override
-	public List<Animal> allAnimalsOfSpecies() {
-		// TODO Auto-generated method stub
-		return null;
+	public Species findById(int id) {
+		return speciesRepo.findById(id);
 	}
 
 }

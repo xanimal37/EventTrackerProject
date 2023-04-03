@@ -6,4 +6,5 @@ import com.skilldistillery.wildlife.entities.Species;
 
 public interface SpeciesRepository extends JpaRepository<Species, Integer>{
 
+	Species findById(int id);
 }

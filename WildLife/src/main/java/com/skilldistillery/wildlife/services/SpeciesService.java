@@ -9,5 +9,5 @@ public interface SpeciesService {
 
 	List<Species> allSpecies();
 	
-	List<Animal> allAnimalsOfSpecies();
+	Species findById(int id);
 }
