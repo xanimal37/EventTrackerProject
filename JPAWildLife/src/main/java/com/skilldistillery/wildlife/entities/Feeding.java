@@ -22,7 +22,7 @@ public class Feeding {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@CreationTimestamp
-	@Column(name = "date_and_time")
+	@Column(name = "when_fed")
 	private LocalDateTime whenFed;
 	private String employee;
 	private String observation;

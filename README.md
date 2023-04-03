@@ -12,7 +12,7 @@ This app lacks a front end and all results are formatted as JSON.
 
 ## Entities
 - Animal (CREATE, UPDATE, DELETE, GET BY ID, GET ALL, SEARCH BY NICKNAME)
-- Feeding (GET ALL BY ANIMAL ID)
+- Feeding (GET ALL BY ANIMAL ID, GET BY ANIMAL ID AND DATE/TIME RANGE)
 - Species (GET ALL)
 
 ### Dictionary
@@ -27,6 +27,7 @@ This app lacks a front end and all results are formatted as JSON.
 - JAVA
 - Spring Boot
 - Spring Data
+- postman
 - REST API
 - JSON
 - Gradle
@@ -35,6 +36,10 @@ This app lacks a front end and all results are formatted as JSON.
 ## Lessons Learned
 - start with simple db, classes and methods and build
 - RESTART SPRING BOOT AFTER CHANGES
+- a column called "date_and_time" will cause problems with Spring Data when attempting to name method findByAnimalIDAndDateAndTime()... renamed to "whenFed"
+- postman will do random variables with ${}
+- use @DateTimeFormat with pattern
+- can use date for range query
 
 ## Things to Improve
 - add enclosure and track cleaning/maintenance
