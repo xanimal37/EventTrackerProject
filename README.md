@@ -39,6 +39,7 @@ This app lacks a front end and all results are formatted as JSON.
 - a field called "somethingANDsomething" will cause problems with Spring Data when attempting to name method findByAnimalIDAndDateAndTime()... renamed to "whenFed"
 - postman will do random variables with ${}
 - use @PathVariable(value=...) @DateTimeFormat with pattern
+- Spring Data JPA has no problem doing a query using LocalDateTime (I read on the internet that times can create problems but it seems to work ok. Might need more testing.)
 - can use date for range query
 
 ## Things to Improve
