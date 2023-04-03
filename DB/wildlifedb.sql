@@ -218,7 +218,7 @@ INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `descriptio
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (86, 'Eastern Cottontail', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (87, 'Eastern Gray Squirrel', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (88, 'Gray Fox', NULL, NULL, NULL, NULL, DEFAULT);
-INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (89, 'Little Brown Bat', 'Little Brown Myotis', 'Myotis lucifugus', NULL, NULL, 5);
+INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (89, 'Little Brown Bat', 'Little Brown Myotis', 'Myotis lucifugus', 'small, brown, mouse-eared bat', 'https://en.wikipedia.org/wiki/Little_brown_bat#/media/File:Little_Brown_Myotis_(cropped).JPG', 5);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (90, 'Meadow Jumping Mouse', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (91, 'Meadow Vole', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (92, 'Muskrat', NULL, NULL, NULL, NULL, DEFAULT);

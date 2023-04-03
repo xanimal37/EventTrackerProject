@@ -43,6 +43,7 @@ This app lacks a front end and all results are formatted as JSON.
 - can use date for range query
 
 ## Things to Improve
+- animals by species does not follow REST grammar - mapping should be species/{id}/animals !! need to fix !!
 - add enclosure and track cleaning/maintenance
 - add medical care tracking table
 - more updates
