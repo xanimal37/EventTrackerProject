@@ -100,8 +100,8 @@ public class AnimalController {
 	public List<Animal> nicknameSearch(@PathVariable String nName) {
 		return animalService.findByNickname(nName);
 	}
-
-	@GetMapping(path = "animals/species/{id}")
+	
+	@GetMapping(path = "species/{id}/animals")
 	public List<Animal> animalsBySpecies(@PathVariable int id, HttpServletResponse res) {
 
 		List<Animal> animals = null;
@@ -118,4 +118,6 @@ public class AnimalController {
 		}
 		return animals;
 	}
+
+	
 }

@@ -2,8 +2,11 @@ package com.skilldistillery.wildlife.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,10 +19,11 @@ public class SpeciesController {
 	
 	@Autowired
 	private SpeciesService speciesService;
+
 	
 	@GetMapping(path="species")
 	public List<Species> getAllSpecies(){
 		return speciesService.allSpecies();
 	}
-
+	
 }

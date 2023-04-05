@@ -60,8 +60,11 @@ DROP TABLE IF EXISTS `animal` ;
 
 CREATE TABLE IF NOT EXISTS `animal` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `tag` VARCHAR(60) NULL,
   `nickname` VARCHAR(45) NULL,
+  `reason` VARCHAR(800) NULL,
   `note` VARCHAR(2000) NULL,
+  `blood_lead` DECIMAL(6) NULL,
   `stay_began` DATE NULL,
   `stay_ended` DATE NULL,
   `species_id` INT NOT NULL,
@@ -249,11 +252,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wildlifedb`;
-INSERT INTO `animal` (`id`, `nickname`, `note`, `stay_began`, `stay_ended`, `species_id`) VALUES (1, 'Crunchy', 'eats rocks?', '2023-01-22', '2023-02-14', 37);
-INSERT INTO `animal` (`id`, `nickname`, `note`, `stay_began`, `stay_ended`, `species_id`) VALUES (2, 'Cutie Pie', 'the cutest little brown bat EVER', '2022-12-26', NULL, 89);
-INSERT INTO `animal` (`id`, `nickname`, `note`, `stay_began`, `stay_ended`, `species_id`) VALUES (3, 'Snarly', 'takes a while to trust', '2023-03-22', NULL, 110);
-INSERT INTO `animal` (`id`, `nickname`, `note`, `stay_began`, `stay_ended`, `species_id`) VALUES (4, 'Piglet', 'likes to eat', '2023-03-31', NULL, 42);
-INSERT INTO `animal` (`id`, `nickname`, `note`, `stay_began`, `stay_ended`, `species_id`) VALUES (5, 'Sneaky', NULL, '2023-04-01', NULL, 100);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `stay_began`, `stay_ended`, `species_id`) VALUES (1, NULL, 'Crunchy', 'lead poisoning', 'eats rocks?', 28.1, '2023-01-22', '2023-02-14', 37);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `stay_began`, `stay_ended`, `species_id`) VALUES (2, NULL, 'Cutie Pie', 'broken leg', 'the cutest little brown bat EVER', NULL, '2022-12-26', NULL, 89);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `stay_began`, `stay_ended`, `species_id`) VALUES (3, NULL, 'Snarly', 'buck shot', 'takes a while to trust', 9.2, '2023-03-22', NULL, 110);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `stay_began`, `stay_ended`, `species_id`) VALUES (4, NULL, 'Piglet', 'territorial fight', 'likes to eat', 2.2, '2023-03-31', NULL, 42);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `stay_began`, `stay_ended`, `species_id`) VALUES (5, NULL, 'Sneaky', 'found during winter', NULL, 10.4, '2023-04-01', NULL, 100);
 
 COMMIT;
 

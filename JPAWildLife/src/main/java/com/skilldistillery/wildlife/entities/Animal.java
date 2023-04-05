@@ -27,7 +27,12 @@ public class Animal {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String nickname;
+	private String tag;
+	@Column(name="blood_lead")
+	private Double bloodLead;
 	private String note;
+	private String reason;
+	
 	@CreationTimestamp
 	@Column(name="stay_began")
 	private LocalDate stayBegan;
@@ -100,6 +105,31 @@ public class Animal {
 	public int hashCode() {
 		return Objects.hash(id);
 	}
+	
+	public String getTag() {
+		return tag;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+
+	public Double getBloodLead() {
+		return bloodLead;
+	}
+
+	public void setBloodLead(Double bloodLead) {
+		this.bloodLead = bloodLead;
+	}
+
+	public String getReason() {
+		return reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+
 
 	@Override
 	public boolean equals(Object obj) {

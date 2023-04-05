@@ -6,6 +6,7 @@ This project is the backend of an app that tracks animals handled wildlife rehab
 - when the animal enters the facility
 - when the animal leaves the facility (or terminates their rehab)
 - when the animal is fed, including who did the feeding and any notes
+- what their blood lead level is when admitted (especially for birds but possibly other animals)
 - more tbd...
 
 This app lacks a front end and all results are formatted as JSON.
@@ -23,13 +24,11 @@ This app lacks a front end and all results are formatted as JSON.
 | POST      | `/api/animals`             | Rep. of a new _animal_ resource        |                                                         |
 | PUT       | `/api/animals/2`           | Rep. of a new version of _animal_ `2`  |                                                         |
 | DELETE    | `/api/animals/2`           |                                        |                                                         |
-| GET       | `/api/animals/species/100` |                                        | Coll. of rep. of _animal_ of _species_ `100`           | 
+| GET       | `/api/species/100/animals` |                                        | Coll. of rep. of _animal_ of _species_ `100`           | 
 | GET       | `api/animals/1/feedings`   |                                        | Coll. of rep. of _feeding_ for _animal_ `1`            | 
 | GET       | `api/species/89`           |                                        | Rep. of _species_ `89` |
 | GET       | `api/animals/search/p`     |                                        | Coll. of rep of _animal_ with nickname like `p`  |
 | GET | `api/animals/1/feedings/2023-02-09 13:00:00/2023-02-11 12:00:00` |   | Coll. of rep of _feeding_ in date range |
-
- *** GET `/api/animals/species/100` should be remapped to species/100/animals ***
 
 ### Dictionary
 - Conservation Status
@@ -59,7 +58,6 @@ This app lacks a front end and all results are formatted as JSON.
 - can use date for range query
 
 ## Things to Improve
-- animals by species does not follow REST grammar - mapping should be species/{id}/animals !! need to fix !!
 - add enclosure and track cleaning/maintenance
 - add medical care tracking table
 - more updates
