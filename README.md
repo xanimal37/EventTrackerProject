@@ -49,6 +49,7 @@ This app lacks a front end and all results are formatted as JSON.
 - postman
 - REST API
 - JSON
+- JavaScript
 - Gradle
 - git
 
@@ -60,6 +61,7 @@ This app lacks a front end and all results are formatted as JSON.
 - use @PathVariable(value=...) @DateTimeFormat with pattern
 - Spring Data JPA has no problem doing a query using LocalDateTime (I read on the internet that times can create problems but it seems to work ok. Might need more testing.)
 - can use date for range query
+- using VS outside of STS, STS doesn't register changes? nor does git. Switched to Sublime.
 
 ## Things to Improve
 - add enclosure and track cleaning/maintenance

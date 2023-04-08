@@ -4,6 +4,13 @@ window.addEventListener('load',function(e){
 
 function init(){
 	console.log("INIT");
+	//add button event listeners
+	document.getElementById("allAnimals").addEventListener('click',function(e){
+		e.preventDefault();
+		loadAllAnimals();
+	});
+
+	//default to recents on home page
 	loadRecentArrivals();
 	loadRecentReleases();
 }
@@ -20,7 +27,6 @@ function loadAllAnimals(){
   				//   and pass the animals object to displayAnimalList().
   				let jsonData =xhr.responseText;
   				let animals = JSON.parse(jsonData);	
-  				console.log(animals);
   				displayAnimalList('all animals',animals);
 		  }
 		  else {
@@ -108,6 +114,8 @@ function loadAnimal(id){
 }
 
 function displayAnimalList(label,animals){
+	//clear main
+	document.getElementById('main').textContent='';
 	//display (dom manipulation)
 	let container = document.createElement('div');
 	let heading = document.createElement('h3');
