@@ -67,5 +67,16 @@ public class AnimalServiceImpl implements AnimalService {
 	public List<Animal> getAllAnimalsOfSpecies(Species s) {
 		return animalRepo.findBySpecies(s);
 	}
+
+	@Override
+	public List<Animal> getRecentArrivals() {
+		return animalRepo.findTop3ByOrderByArrivedDesc();
+		
+	}
+
+	@Override
+	public List<Animal> getRecentReleases() {
+		return animalRepo.findTop3ByOrderByReleasedDesc();
+	}
 	
 }

@@ -118,6 +118,16 @@ public class AnimalController {
 		}
 		return animals;
 	}
+	
+	@GetMapping(path="animals/releases")
+	public List<Animal> latestReleases(){
+		return animalService.getRecentReleases();
+	}
+	
+	@GetMapping(path="animals/arrivals")
+	public List<Animal> latestArrivals(){
+		return animalService.getRecentArrivals();
+	}
 
 	
 }

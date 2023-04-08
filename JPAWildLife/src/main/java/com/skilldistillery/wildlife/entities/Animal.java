@@ -1,6 +1,7 @@
 package com.skilldistillery.wildlife.entities;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -34,10 +35,9 @@ public class Animal {
 	private String reason;
 	
 	@CreationTimestamp
-	@Column(name="stay_began")
-	private LocalDate stayBegan;
-	@Column(name="stay_ended")
-	private LocalDate stayEnded;
+	private LocalDateTime arrived;
+	
+	private LocalDateTime released;
 	//relationships
 	@ManyToOne
     @JoinColumn(name="species_id")
@@ -52,22 +52,6 @@ public class Animal {
 
 	public void setFeedings(List<Feeding> feedings) {
 		this.feedings = feedings;
-	}
-
-	public LocalDate getStayBegan() {
-		return stayBegan;
-	}
-
-	public void setStayBegan(LocalDate stayBegan) {
-		this.stayBegan = stayBegan;
-	}
-
-	public LocalDate getStayEnded() {
-		return stayEnded;
-	}
-
-	public void setStayEnded(LocalDate stayEnded) {
-		this.stayEnded = stayEnded;
 	}
 
 	public String getNote() {
@@ -129,6 +113,22 @@ public class Animal {
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
+	
+	public LocalDateTime getArrived() {
+		return arrived;
+	}
+
+	public void setArrived(LocalDateTime arrived) {
+		this.arrived = arrived;
+	}
+
+	public LocalDateTime getReleased() {
+		return released;
+	}
+
+	public void setReleased(LocalDateTime released) {
+		this.released = released;
+	}
 
 
 	@Override
@@ -147,5 +147,7 @@ public class Animal {
 	public String toString() {
 		return "Animal [id=" + id + ", nickname=" + nickname + "]";
 	}
+
+	
 	
 }

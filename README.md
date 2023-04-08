@@ -13,6 +13,8 @@ This app lacks a front end and all results are formatted as JSON.
 
 ## Entities
 - Animal (CREATE, UPDATE, DELETE, GET BY ID, GET ALL, SEARCH BY NICKNAME, GET ALL ANIMALS OF SPECIES)
+-- three most recent arrivals
+-- three most recent releases
 - Feeding (GET ALL BY ANIMAL ID, GET BY ANIMAL ID AND DATE/TIME RANGE)
 - Species (GET ALL)
 
@@ -29,6 +31,8 @@ This app lacks a front end and all results are formatted as JSON.
 | GET       | `api/species/89`           |                                        | Rep. of _species_ `89` |
 | GET       | `api/animals/search/p`     |                                        | Coll. of rep of _animal_ with nickname like `p`  |
 | GET | `api/animals/1/feedings/2023-02-09 13:00:00/2023-02-11 12:00:00` |   | Coll. of rep of _feeding_ in date range |
+| GET | `api/animals/arrivals` |   | Coll. of 3 most recently arrived _animal_ |
+| GET | `api/animals/releases` |   | Coll. of 3 most recently released _animal_ |
 
 ### Dictionary
 - Conservation Status

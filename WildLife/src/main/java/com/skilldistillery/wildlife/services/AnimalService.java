@@ -20,5 +20,8 @@ public interface AnimalService {
 	List<Animal> findByNickname(String nName);
 	
 	List<Animal> getAllAnimalsOfSpecies(Species s);
+	
+	List<Animal> getRecentArrivals();
 
+	List<Animal> getRecentReleases();
 }
