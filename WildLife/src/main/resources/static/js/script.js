@@ -154,7 +154,6 @@ function displayAnimalList(label,animals){
 
 function displayAnimal(animal){
 	//clear main container
-	console.log('display animal number '+animal.id);
 	document.getElementById('main').textContent='';
 
 	let aDiv = document.createElement('div');
@@ -173,4 +172,10 @@ function displayAnimal(animal){
 		aDiv.appendChild(aReleased);
 
 		main.appendChild(aDiv);
+}
+
+function displayAdmissionForm(){
+	//clear main container
+	document.getElementById('main').textContent='';
+	//build form elements
 }
