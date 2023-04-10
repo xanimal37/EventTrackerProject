@@ -161,6 +161,8 @@ function displayAnimalList(label,animals){
 		//button for details
 		let info = document.createElement('button');
 		info.id = animal.id;
+		info.classList.add('btn');
+		info.classList.add('btn-dark');
 		info.textContent = 'more info';
 		info.addEventListener('click',function(e){
 			e.preventDefault();
@@ -177,7 +179,7 @@ function displayAnimal(animal){
 	//clear main container
 	document.getElementById('main').textContent='';
 		let animalDiv = document.createElement('div');
-		animalDiv.id = 'animalDiv';
+		animalDiv.classList.add('animal');
 		let form = document.createElement('form');
 		form.name = 'animalForm';
 		//form
@@ -251,6 +253,8 @@ function displayAnimal(animal){
 		submit.name = 'submit'; // assign a name attribute
 		submit.type = 'submit'; // assign a type attribute
 		submit.value = 'Update Animal'; // assign a value attribute
+		submit.classList.add('btn');
+		submit.classList.add('btn-dark');
 
 		submit.addEventListener('click', function(e) { // Assign an event listener to the submit button variable
 
@@ -265,6 +269,9 @@ function displayAnimal(animal){
 		deleteBtn.name = 'delete'; // assign a name attribute
 		deleteBtn.type = 'submit'; // assign a type attribute
 		deleteBtn.value = 'Delete Animal'; // assign a value attribute
+		deleteBtn.classList.add('btn');
+		deleteBtn.classList.add('btn-dark');
+
 
 		deleteBtn.addEventListener('click', function(e) { // Assign an event listener to the submit button variable
 
@@ -277,17 +284,22 @@ function displayAnimal(animal){
 		form.appendChild(nicknameLabel);
 		form.appendChild(nickname);
 		form.appendChild(document.createElement('br'));
+		form.appendChild(document.createElement('br'));
 		form.appendChild(tagLabel);
 		form.appendChild(tag);
+		form.appendChild(document.createElement('br'));
 		form.appendChild(document.createElement('br'));
 		form.appendChild(reasonLabel);
 		form.appendChild(reason);
 		form.appendChild(document.createElement('br'));
+		form.appendChild(document.createElement('br'));
 		form.appendChild(noteLabel);
 		form.appendChild(note);
 		form.appendChild(document.createElement('br'));
+		form.appendChild(document.createElement('br'));
 		form.appendChild(bloodleadLabel);
 		form.appendChild(bloodlead);
+		form.appendChild(document.createElement('br'));
 		form.appendChild(document.createElement('br'));
 		form.appendChild(aArrived);
 		
@@ -307,6 +319,7 @@ function displayAnimal(animal){
 		
 		//species information box
 		let speciesDiv = document.createElement('div');
+		speciesDiv.id='speciesDiv';
 
 		let speciesh3 = document.createElement('h3');
 		speciesh3.textContent = 'species';
@@ -336,10 +349,14 @@ function displayAnimal(animal){
 		speciesStatus.classList.add(animal.species.conservationStatus.statusCode);
 		speciesStatus.textContent = animal.species.conservationStatus.status;
 
+		speciesStatusDesc = document.createElement('p');
+		speciesStatusDesc.textContent = animal.species.conservationStatus.description;
+
 		speciesDiv.appendChild(sName);
 		speciesDiv.appendChild(sScientificName);
 		speciesDiv.appendChild(sDescription);
 		speciesDiv.appendChild(speciesStatus);
+		speciesDiv.appendChild(speciesStatusDesc);
 
 		document.getElementById('main').appendChild(speciesDiv);
 
@@ -350,6 +367,8 @@ function displayAdmissionForm(species){
 	//clear main container
 	document.getElementById('main').textContent='';
 	//build form elements
+	let container = document.createElement('div');
+	container.classList.add('animal');
 	let form = document.createElement('form');
 	form.name = 'admissionForm';
 	//nickame
@@ -392,17 +411,23 @@ function displayAdmissionForm(species){
 	form.appendChild(nicknameLabel);
 	form.appendChild(nickname);
 	form.appendChild(document.createElement('br'));
+	form.appendChild(document.createElement('br'));
 	form.appendChild(tagLabel);
 	form.appendChild(tag);
+	form.appendChild(document.createElement('br'));
 	form.appendChild(document.createElement('br'));
 	form.appendChild(reasonLabel);
 	form.appendChild(reason);
 	form.appendChild(document.createElement('br'));
+	form.appendChild(document.createElement('br'));
 	form.appendChild(noteLabel);
 	form.appendChild(note);
 	form.appendChild(document.createElement('br'));
+	form.appendChild(document.createElement('br'));
 	form.appendChild(bloodleadLabel);
 	form.appendChild(bloodlead);
+	form.appendChild(document.createElement('br'));
+	form.appendChild(document.createElement('br'));
 
 	//species information
 	let speciesLabel = document.createElement('label');
@@ -414,6 +439,7 @@ function displayAdmissionForm(species){
 	form.appendChild(speciesLabel);
 	form.appendChild(spec);
 	form.appendChild(document.createElement('br'));
+
 	
 	
 	for(s of species){
@@ -428,6 +454,8 @@ function displayAdmissionForm(species){
 		submit.name = 'submit'; // assign a name attribute
 		submit.type = 'submit'; // assign a type attribute
 		submit.value = 'Admit Animal'; // assign a value attribute
+		submit.classList.add('btn');
+		submit.classList.add('btn-dark');
 
 		submit.addEventListener('click', function(e) { // Assign an event listener to the submit button variable
 
@@ -441,8 +469,8 @@ function displayAdmissionForm(species){
 		form.appendChild(document.createElement('br'));
 		form.appendChild(submit);
 
- 	document.getElementById('main').appendChild(form);
-	
+		container.appendChild(form);
+ 		document.getElementById('main').appendChild(container);
 	
 }
 
@@ -534,7 +562,7 @@ function UpdateAnimal(id){
 
 	//check for release
 	let timestamp=null
-	if(document.getElementById('isReleased').checked){
+	if(document.getElementById('isReleased')!=null && document.getElementById('isReleased').checked){
 		let dateString = (new Date()).toLocaleDateString('fr-CA');
 		let timeString = (new Date()).toLocaleTimeString();
 		timeString = timeString.slice(0, -3);

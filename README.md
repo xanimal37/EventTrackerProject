@@ -5,7 +5,6 @@ This project is the backend of an app that tracks animals handled wildlife rehab
 
 - when the animal enters the facility
 - when the animal leaves the facility (or terminates their rehab)
-- when the animal is fed, including who did the feeding and any notes
 - what their blood lead level is when admitted (especially for birds but possibly other animals)
 - more tbd...
 
@@ -40,7 +39,6 @@ This app lacks a front end and all results are formatted as JSON.
 ### Events
 - animal arrives
 - animal leaves
-- animal is fed
 
 ## Technologies Used
 - JAVA
@@ -71,4 +69,6 @@ This app lacks a front end and all results are formatted as JSON.
 - more updates
 - fill out database
 - work on some more complicated queries
+- better date formats
+- more images
 - front end...

@@ -1,15 +1,6 @@
-html {
-	margin:0;
-	padding:0;
-	font-family: sans-serif;
-	line-height: 1.6;
-	color:#ffffff;
-	
-	background-color:#666633;
-}
 
 #quickLinks {
-	background-color:rgba(200,200,200,.8);
+	background-color:#BDB76B;
 	padding:.4em;
 	color:#000000;
 }
@@ -19,12 +10,12 @@ html {
 }
 
 nav ul {
+	
 	list-style-type:none;
 	display:flex;
 	flex-direction:row;
-	justify-content:space-around;
 	flex-wrap:no-wrap;
-	
+	justify-content:center;
 	font-size:1.4em;
 }
 
@@ -40,12 +31,16 @@ nav ul a {
 	padding:1em;
 }
 
-.animals {
-	background-color:#333333;
+#speciesDiv {
+	background-color:#000000;
+	color:#ffffff;
+	border:1px solid green;
+	margin:1em;
+	padding:1em;
 }
 
-h3 {
-	text-align:center;
+#speciesDiv h3 {
+	margin-left:0;
 }
 
 main {
@@ -53,3 +48,43 @@ main {
 	flex-direction:column;
 	flex-wrap:wrap;
 }
+
+#options {
+	padding:1em;
+	display:flex;
+	flex-direction:row;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-family:'Josefin Sans';	
+}
+
+h1 {
+	margin:1em;
+	text-align:center;
+}
+h1,h3 {
+	
+	margin-left:1em;
+}
+
+.btn {
+	margin:.6em;
+}
+
+.EN, .EW, .EX, .CR {
+	color:red;
+}
+
+.LC, .CD {
+	color:green;
+}
+
+.NT, .VU {
+	color:yellow;
+}
+
+.NE, .DD {
+	color:grey;
+}
+
+
