@@ -159,23 +159,167 @@ function displayAnimalList(label,animals){
 function displayAnimal(animal){
 	//clear main container
 	document.getElementById('main').textContent='';
-
-	let aDiv = document.createElement('div');
-	aName = document.createElement('h4');
-		aName.textContent=animal.nickname;
-		aReason = document.createElement('p');
-		aReason.textContent=animal.reason;
+		let form = document.createElement('form');
+		form.name = 'animalForm';
+		//form
+		
+		//nickame
+		let nickname = document.createElement('input');
+		nickname.name = 'nickname'; // assign a name attribute
+		nickname.type = 'text'; // assign a type attribute// create an input field
+		nickname.value = animal.nickname;
+		let nicknameLabel = document.createElement('label');
+		nicknameLabel.setAttribute("for",'nickname');
+		nicknameLabel.textContent ='NickName (if any): ';
+		//tag 
+		let tag = document.createElement('input');
+		tag.name = 'tag'; // assign a name attribute
+		tag.type = 'text'; // assign a type attribute// create an input field
+		tag.value = animal.tag;
+		let tagLabel = document.createElement('label');
+		tagLabel.setAttribute("for",'tag');
+		tagLabel.textContent ='Tag (if any): ';
+		//reason
+		let reason = document.createElement('input');
+		reason.name = 'reason'; // assign a name attribute
+		reason.type = 'text'; // assign a type attribute// create an input field
+		reason.value= animal.reason;
+		let reasonLabel = document.createElement('label');
+		reasonLabel.setAttribute("for",'reason');
+		reasonLabel.textContent ='Reason: ';
+		//note
+		let note = document.createElement('input');
+		note.name = 'note'; // assign a name attribute
+		note.type = 'text'; // assign a type attribute// create an input field
+		note.value = animal.note;
+		let noteLabel = document.createElement('label');
+		noteLabel.setAttribute("for",'note');
+		noteLabel.textContent ='Note: ';
+		//lead level --might want to track this?
+		let bloodlead = document.createElement('input');
+		bloodlead.name = 'bloodlead'; // assign a name attribute
+		bloodlead.type = 'number'; // assign a type attribute// create an input field
+		bloodlead.value = animal.bloodLead;
+		let bloodleadLabel = document.createElement('label');
+		bloodleadLabel.setAttribute("for",'bloodlead');
+		bloodleadLabel.textContent ='Blood Lead Level: ';
+		//arrived 
 		aArrived = document.createElement('p');
-		aArrived.textContent = animal.arrived;
-		aReleased = document.createElement('p');
-		aReleased.textContent = animal.released;
-		//append
-		aDiv.appendChild(aName);
-		aDiv.appendChild(aReason);
-		aDiv.appendChild(aArrived);
-		aDiv.appendChild(aReleased);
+		aArrived.textContent = 'Arrived: '+ animal.arrived;
+		//released
+		let aReleased;
+		let released;
+		let releasedLabel;
+		if(animal.released!=null){
+			aReleased = document.createElement('p');
+			aReleased.textContent = 'Released: '+ animal.released;
+		}
+		else {
+			released = document.createElement('input');
+			released.type = 'radio';
+			released.name = 'isReleased';
+			released.id = 'isReleased';
+			released.value = "Released";
+			//lable
+			releasedLabel = document.createElement('label');
+			releasedLabel.setAttribute('for','isReleased');
+			releasedLabel.textContent='Released: ';
+		}
 
-		main.appendChild(aDiv);
+		// create a submit input
+		let submit = document.createElement('input');
+		submit.id = animal.id;
+		submit.name = 'submit'; // assign a name attribute
+		submit.type = 'submit'; // assign a type attribute
+		submit.value = 'Update Animal'; // assign a value attribute
+
+		submit.addEventListener('click', function(e) { // Assign an event listener to the submit button variable
+
+			e.preventDefault();
+			UpdateAnimal(e.target.id);
+
+		});
+
+		//create a delete button
+		let deleteBtn = document.createElement('input');
+		deleteBtn.id = animal.id;
+		deleteBtn.name = 'delete'; // assign a name attribute
+		deleteBtn.type = 'submit'; // assign a type attribute
+		deleteBtn.value = 'Delete Animal'; // assign a value attribute
+
+		deleteBtn.addEventListener('click', function(e) { // Assign an event listener to the submit button variable
+
+			e.preventDefault();
+			deleteAnimal(e.target.id);
+
+		});
+
+		//build form
+		form.appendChild(nicknameLabel);
+		form.appendChild(nickname);
+		form.appendChild(tagLabel);
+		form.appendChild(tag);
+		form.appendChild(reasonLabel);
+		form.appendChild(reason);
+		form.appendChild(noteLabel);
+		form.appendChild(note);
+		form.appendChild(bloodleadLabel);
+		form.appendChild(bloodlead);
+		form.appendChild(aArrived);
+		
+		if(animal.released==null){
+			form.appendChild(releasedLabel);
+			form.appendChild(released);
+			}
+		
+		else {
+			form.appendChild(aReleased);
+		}
+
+		form.appendChild(submit);
+		form.appendChild(deleteBtn);
+
+		document.getElementById('main').appendChild(form);
+		
+		//species information box
+		let speciesDiv = document.createElement('div');
+
+		let speciesh3 = document.createElement('h3');
+		speciesh3.textContent = 'species';
+
+		let img;
+		//image from species
+		if(animal.species.imageURL!=null){
+			img = document.createElement("img");
+			img.src = animal.species.imageURL;
+		}
+
+		let sName = document.createElement('p');
+		sName.textContent = animal.species.name;
+
+		let sScientificName = document.createElement('p');
+		sScientificName.textContent = animal.species.scientificName;
+
+		let sDescription = document.createElement('p');
+		sDescription.textContent = animal.species.description;
+
+		speciesDiv.appendChild(speciesh3);
+		if(img!=null){
+			speciesDiv.appendChild(img);
+		}
+
+		speciesStatus = document.createElement('p');
+		speciesStatus.classList.add(animal.species.conservationStatus.statusCode);
+		speciesStatus.textContent = animal.species.conservationStatus.status;
+
+		speciesDiv.appendChild(sName);
+		speciesDiv.appendChild(sScientificName);
+		speciesDiv.appendChild(sDescription);
+		speciesDiv.appendChild(speciesStatus);
+
+		document.getElementById('main').appendChild(speciesDiv);
+
+
 }
 
 function displayAdmissionForm(species){
@@ -231,6 +375,8 @@ function displayAdmissionForm(species){
 	form.appendChild(note);
 	form.appendChild(bloodleadLabel);
 	form.appendChild(bloodlead);
+
+	document.getElementById('main').appendChild(form);
 
 	//species information
 	let speciesLabel = document.createElement('label');
@@ -322,7 +468,7 @@ function AdmitAnimal(){
   		tag: admissionForm.tag.value,
   		reason: admissionForm.reason.value,
   		note: admissionForm.note.value,
-  		bloodlead: admissionForm.bloodlead.value,
+  		bloodLead: admissionForm.bloodlead.value,
 	};
 
 let jsonAnimal = JSON.stringify(animal); // Convert JS object to JSON string
@@ -331,6 +477,80 @@ let jsonAnimal = JSON.stringify(animal); // Convert JS object to JSON string
 console.log(jsonAnimal);
 xhr.send(jsonAnimal);
 }
+
+//********************************* UPDATE
+function UpdateAnimal(id){
+	let xhr = new XMLHttpRequest();
+	xhr.open('PUT', 'api/animals/'+id, true);
+	xhr.setRequestHeader("Content-type", "application/json"); // Specify JSON request body
+
+	xhr.onreadystatechange = function() {
+  		if (xhr.readyState === 4 ) {
+    		if ( xhr.status == 200 || xhr.status == 201 ) { // Ok or Created
+      			let data = JSON.parse(xhr.responseText);
+      			console.log(data);
+    		}
+    		else {
+      		console.error("POST request failed.");
+      		console.error(xhr.status + ': ' + xhr.responseText);
+    		}
+  		}
+	};
+
+	//check for release
+	let timestamp=null
+	if(document.getElementById('isReleased').checked){
+		timestamp = (new Date()).toLocaleDateString('fr-CA');
+		timestamp+='T00:00:00';
+	}
+
+	// JavaScript data (object)
+	let animal = {
+  		nickname: animalForm.nickname.value,
+  		tag: animalForm.tag.value,
+  		reason: animalForm.reason.value,
+  		note: animalForm.note.value,
+  		bloodLead: animalForm.bloodlead.value,
+  		released: timestamp
+	};
+
+let jsonAnimal = JSON.stringify(animal); // Convert JS object to JSON string
+
+// Pass JSON as request body
+console.log(jsonAnimal);
+xhr.send(jsonAnimal);
+}
+
+function deleteAnimal(id){
+	//XHR
+	let xhr = new XMLHttpRequest();
+	xhr.open('DELETE','api/animals/'+id,true);
+	
+	xhr.onreadystatechange = () => {
+	  if(xhr.readyState === 4){
+		  if(xhr.status === 204){
+			   // * On success, if a response was received parse the animals data
+  				//   and pass the animals object to displayAnimalList().
+  				let jsonData =xhr.responseText;
+  				let result = document.createElement('div');
+  				let text = document.createElement('p');
+  				text.textContent = "Animal successfully deleted";
+
+  				document.getElementById('main').textContent='';
+  				result.appendChild(text);
+  				document.getElementById('main').appendChild(result);
+		  }
+		  else {
+			   // * On failure, or if no response text was received, put "Film not found" 
+  				//   in the filmData div.
+  				console.log("fail");
+		  }
+	  }
+  }
+  xhr.send();
+}
+
+
 
 
 

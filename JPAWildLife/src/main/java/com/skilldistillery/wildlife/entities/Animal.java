@@ -20,32 +20,33 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Animal {
-	
-	//no arg constructor!
-	public Animal() {}
-	
+
+	// no arg constructor!
+	public Animal() {
+	}
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nickname;
 	private String tag;
-	@Column(name="blood_lead")
+	@Column(name = "blood_lead")
 	private Double bloodLead;
 	private String note;
 	private String reason;
-	
+
 	@CreationTimestamp
 	private LocalDateTime arrived;
-	
+
 	private LocalDateTime released;
-	//relationships
+	// relationships
 	@ManyToOne
-    @JoinColumn(name="species_id")
+	@JoinColumn(name = "species_id")
 	private Species species;
-	@OneToMany(mappedBy="animal")
+	@OneToMany(mappedBy = "animal")
 	@JsonIgnore
 	private List<Feeding> feedings;
-	
+
 	public List<Feeding> getFeedings() {
 		return feedings;
 	}
@@ -65,17 +66,18 @@ public class Animal {
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getNickname() {
 		return nickname;
 	}
+
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	
 
 	public Species getSpecies() {
 		return species;
@@ -89,7 +91,7 @@ public class Animal {
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-	
+
 	public String getTag() {
 		return tag;
 	}
@@ -106,6 +108,8 @@ public class Animal {
 		this.bloodLead = bloodLead;
 	}
 
+	
+
 	public String getReason() {
 		return reason;
 	}
@@ -113,7 +117,7 @@ public class Animal {
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
-	
+
 	public LocalDateTime getArrived() {
 		return arrived;
 	}
@@ -129,7 +133,6 @@ public class Animal {
 	public void setReleased(LocalDateTime released) {
 		this.released = released;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -148,6 +151,4 @@ public class Animal {
 		return "Animal [id=" + id + ", nickname=" + nickname + "]";
 	}
 
-	
-	
 }

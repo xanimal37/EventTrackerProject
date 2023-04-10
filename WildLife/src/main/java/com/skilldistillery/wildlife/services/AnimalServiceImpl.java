@@ -40,6 +40,10 @@ public class AnimalServiceImpl implements AnimalService {
 		Animal original = animalRepo.findById(id);
 		if(original!=null && animal!=null) {
 			original.setNickname(animal.getNickname());
+			original.setBloodLead(animal.getBloodLead());
+			original.setNote(animal.getNote());
+			original.setReason(animal.getReason());
+			original.setReleased(animal.getReleased());
 			//this method will see the id and know to update
 			return animalRepo.saveAndFlush(original);
 		}
