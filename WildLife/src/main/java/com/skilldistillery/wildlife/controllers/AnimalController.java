@@ -44,15 +44,16 @@ public class AnimalController {
 	}
 
 	// add animal
+	// animal needs to be added 'under' a species (rest grammar)
 	// use servlet request to find where they came from
-	@PostMapping(path = "animals")
-	Animal putAnimal(@RequestBody Animal animal, HttpServletRequest req, HttpServletResponse res) {
+	@PostMapping(path = "species/{id}/animals")
+	Animal putAnimal(@PathVariable int id, @RequestBody Animal animal,HttpServletRequest req, HttpServletResponse res) {
 		try {
-			animal = animalService.createAnimal(animal);
+			animal = animalService.createAnimal(animal, id);
 			res.setStatus(201);
-			StringBuffer url = req.getRequestURL(); // define as stringbuffer
-			url.append("/").append(animal.getId()); // append id to url so will show user the post url
-			res.setHeader("Location", url.toString()); // location
+			//StringBuffer url = req.getRequestURL(); // define as stringbuffer
+			//url.append("/").append(animal.getId()); // append id to url so will show user the post url
+			//res.setHeader("Location", url.toString()); // location
 		}
 
 		catch (Exception e) {

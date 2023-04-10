@@ -8,12 +8,15 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.wildlife.entities.Animal;
 import com.skilldistillery.wildlife.entities.Species;
 import com.skilldistillery.wildlife.repositories.AnimalRepository;
+import com.skilldistillery.wildlife.repositories.SpeciesRepository;
 
 @Service
 public class AnimalServiceImpl implements AnimalService {
 
 	@Autowired
 	private AnimalRepository animalRepo;
+	@Autowired
+	private SpeciesRepository speciesRepo;
 
 	@Override
 	public List<Animal> findAllAnimals() {
@@ -26,7 +29,9 @@ public class AnimalServiceImpl implements AnimalService {
 	}
 
 	@Override
-	public Animal createAnimal(Animal animal) {
+	public Animal createAnimal(Animal animal, int id) {
+		Species species = speciesRepo.findById(id);
+		animal.setSpecies(species);
 		return animalRepo.saveAndFlush(animal);
 	}
 

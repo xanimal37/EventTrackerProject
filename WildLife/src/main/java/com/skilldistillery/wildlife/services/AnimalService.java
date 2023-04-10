@@ -11,7 +11,7 @@ public interface AnimalService {
 	
 	Animal getAnimalById(int id);
 	
-	Animal createAnimal(Animal animal);
+	Animal createAnimal(Animal animal, int id);
 	
 	Animal updateAnimal(int id, Animal animal);
 	

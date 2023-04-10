@@ -23,7 +23,7 @@ This app lacks a front end and all results are formatted as JSON.
 |-----------|----------------------------|----------------------------------------|---------------------------------------------------------|
 | GET       | `/api/animals`             |                                        | Coll. of representations of all _animal_ resources      |
 | GET       | `/api/animals/2`           |                                        | Rep.of _animal_ `2`                                     |
-| POST      | `/api/animals`             | Rep. of a new _animal_ resource        |                                                         |
+| POST      | `/api/species/23/animals`             | Rep. of a new _animal_ resource with _species_ `23`      |                                                         |
 | PUT       | `/api/animals/2`           | Rep. of a new version of _animal_ `2`  |                                                         |
 | DELETE    | `/api/animals/2`           |                                        |                                                         |
 | GET       | `/api/species/100/animals` |                                        | Coll. of rep. of _animal_ of _species_ `100`           | 
@@ -62,6 +62,8 @@ This app lacks a front end and all results are formatted as JSON.
 - Spring Data JPA has no problem doing a query using LocalDateTime (I read on the internet that times can create problems but it seems to work ok. Might need more testing.)
 - can use date for range query
 - using VS outside of STS, STS doesn't register changes? nor does git. Switched to Sublime.
+- because XHR request is asynchronous, can not parse and save result to outside variable. result will be undefined. Instead, call another function to set or pass the parsed data.
+- send path id to send to SERVICE IMPL to map relationships
 
 ## Things to Improve
 - add enclosure and track cleaning/maintenance
