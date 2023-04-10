@@ -61,12 +61,12 @@ DROP TABLE IF EXISTS `animal` ;
 CREATE TABLE IF NOT EXISTS `animal` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `tag` VARCHAR(60) NULL,
-  `nickname` VARCHAR(45) NULL,
-  `reason` VARCHAR(800) NULL,
+  `nickname` VARCHAR(60) NULL,
+  `reason` VARCHAR(1000) NULL,
   `note` VARCHAR(2000) NULL,
-  `blood_lead` DECIMAL(6) NULL,
-  `stay_began` DATE NULL,
-  `stay_ended` DATE NULL,
+  `blood_lead` DOUBLE NULL,
+  `arrived` DATETIME NULL,
+  `released` DATETIME NULL,
   `species_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_animal_species1_idx` (`species_id` ASC),
@@ -252,11 +252,12 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wildlifedb`;
-INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `stay_began`, `stay_ended`, `species_id`) VALUES (1, NULL, 'Crunchy', 'lead poisoning', 'eats rocks?', 28.1, '2023-01-22', '2023-02-14', 37);
-INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `stay_began`, `stay_ended`, `species_id`) VALUES (2, NULL, 'Cutie Pie', 'broken leg', 'the cutest little brown bat EVER', NULL, '2022-12-26', NULL, 89);
-INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `stay_began`, `stay_ended`, `species_id`) VALUES (3, NULL, 'Snarly', 'buck shot', 'takes a while to trust', 9.2, '2023-03-22', NULL, 110);
-INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `stay_began`, `stay_ended`, `species_id`) VALUES (4, NULL, 'Piglet', 'territorial fight', 'likes to eat', 2.2, '2023-03-31', NULL, 42);
-INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `stay_began`, `stay_ended`, `species_id`) VALUES (5, NULL, 'Sneaky', 'found during winter', NULL, 10.4, '2023-04-01', NULL, 100);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (1, NULL, 'Crunchy', 'lead poisoning', 'eats rocks?', 28.1, '2023-03-14 13:00:00', '2023-03-18 14:30:00', 37);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (2, NULL, 'Cutie Pie', 'broken leg', 'the cutest little brown bat EVER', NULL, '2023-02-28 12:00:00', NULL, 89);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (3, NULL, 'Snarly', 'buck shot', 'takes a while to trust', 9.2, '2022-12-19 13:36:00', NULL, 110);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (4, NULL, 'Piglet', 'territorial fight', 'likes to eat', 2.2, '2023-01-31 16:09:00', NULL, 42);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (5, NULL, 'Sneaky', 'found during winter', NULL, 10.4, '2022-10-28 10:00:00', NULL, 100);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (6, '324L', 'Bik', 'baby mom died', NULL, NULL, '2022-11-10 00:00:00', '2023-04-09 12:00:00', 86);
 
 COMMIT;
 
