@@ -53,7 +53,7 @@ public class AnimalController {
 			res.setStatus(201);
 			//StringBuffer url = req.getRequestURL(); // define as stringbuffer
 			//url.append("/").append(animal.getId()); // append id to url so will show user the post url
-			//res.setHeader("Location", url.toString()); // location
+			res.setHeader("Location", "http://localhost:8083"); // location
 		}
 
 		catch (Exception e) {

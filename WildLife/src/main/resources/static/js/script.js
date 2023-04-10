@@ -15,6 +15,7 @@ function init(){
 	});
 
 	//default to recents on home page
+	clearMain();
 	loadRecentArrivals();
 	loadRecentReleases();
 }
@@ -31,6 +32,7 @@ function loadAllAnimals(){
   				//   and pass the animals object to displayAnimalList().
   				let jsonData =xhr.responseText;
   				let animals = JSON.parse(jsonData);	
+  				clearMain();
   				displayAnimalList('all animals',animals);
 		  }
 		  else {
@@ -81,7 +83,13 @@ function loadRecentReleases(){
   				let jsonData =xhr.responseText;
   				let animals = JSON.parse(jsonData);	
   				console.log(animals);
-  				displayAnimalList('releases',animals);
+  				let filteredAnimals = [];
+  				for(a of animals){
+  					if(a.released!=null){
+  						filteredAnimals.push(a);
+  					}
+  				}
+  				displayAnimalList('releases',filteredAnimals);
 		  }
 		  else {
 			   // * On failure, or if no response text was received, put "Film not found" 
@@ -118,29 +126,38 @@ function loadAnimal(id){
 }
 
 function displayAnimalList(label,animals){
-	//clear main
-	document.getElementById('main').textContent='';
 	//display (dom manipulation)
 	let container = document.createElement('div');
+	container.classList.add('animals');
+
 	let heading = document.createElement('h3');
 	heading.textContent = label;
 	container.appendChild(heading);
 	//div for each animal
 	for(animal of animals){
 		aDiv = document.createElement('div');
+		aDiv.classList.add('animal');
 		aName = document.createElement('h4');
 		aName.textContent=animal.nickname;
+		aSpecies = document.createElement('p');
+		aSpecies.textContent='species: '+animal.species.name;
 		aReason = document.createElement('p');
-		aReason.textContent=animal.reason;
+		aReason.textContent='reason admitted: ' + animal.reason;
 		aArrived = document.createElement('p');
-		aArrived.textContent = animal.arrived;
-		aReleased = document.createElement('p');
-		aReleased.textContent = animal.released;
+		aArrived.textContent = 'arrived: ' + animal.arrived;
+		let aReleased;
+		if(animal.released!=null){
+			aReleased = document.createElement('p');
+			aReleased.textContent = 'released: '+ animal.released;
+		}
 		//append
 		aDiv.appendChild(aName);
+		aDiv.appendChild(aSpecies);
 		aDiv.appendChild(aReason);
 		aDiv.appendChild(aArrived);
+		if(animal.released!=null){
 		aDiv.appendChild(aReleased);
+	}
 		//button for details
 		let info = document.createElement('button');
 		info.id = animal.id;
@@ -159,6 +176,8 @@ function displayAnimalList(label,animals){
 function displayAnimal(animal){
 	//clear main container
 	document.getElementById('main').textContent='';
+		let animalDiv = document.createElement('div');
+		animalDiv.id = 'animalDiv';
 		let form = document.createElement('form');
 		form.name = 'animalForm';
 		//form
@@ -257,14 +276,19 @@ function displayAnimal(animal){
 		//build form
 		form.appendChild(nicknameLabel);
 		form.appendChild(nickname);
+		form.appendChild(document.createElement('br'));
 		form.appendChild(tagLabel);
 		form.appendChild(tag);
+		form.appendChild(document.createElement('br'));
 		form.appendChild(reasonLabel);
 		form.appendChild(reason);
+		form.appendChild(document.createElement('br'));
 		form.appendChild(noteLabel);
 		form.appendChild(note);
+		form.appendChild(document.createElement('br'));
 		form.appendChild(bloodleadLabel);
 		form.appendChild(bloodlead);
+		form.appendChild(document.createElement('br'));
 		form.appendChild(aArrived);
 		
 		if(animal.released==null){
@@ -278,8 +302,8 @@ function displayAnimal(animal){
 
 		form.appendChild(submit);
 		form.appendChild(deleteBtn);
-
-		document.getElementById('main').appendChild(form);
+		animalDiv.appendChild(form);
+		document.getElementById('main').appendChild(animalDiv);
 		
 		//species information box
 		let speciesDiv = document.createElement('div');
@@ -367,16 +391,18 @@ function displayAdmissionForm(species){
 	//add basic information
 	form.appendChild(nicknameLabel);
 	form.appendChild(nickname);
+	form.appendChild(document.createElement('br'));
 	form.appendChild(tagLabel);
 	form.appendChild(tag);
+	form.appendChild(document.createElement('br'));
 	form.appendChild(reasonLabel);
 	form.appendChild(reason);
+	form.appendChild(document.createElement('br'));
 	form.appendChild(noteLabel);
 	form.appendChild(note);
+	form.appendChild(document.createElement('br'));
 	form.appendChild(bloodleadLabel);
 	form.appendChild(bloodlead);
-
-	document.getElementById('main').appendChild(form);
 
 	//species information
 	let speciesLabel = document.createElement('label');
@@ -387,6 +413,7 @@ function displayAdmissionForm(species){
 	//one option for each species
 	form.appendChild(speciesLabel);
 	form.appendChild(spec);
+	form.appendChild(document.createElement('br'));
 	
 	
 	for(s of species){
@@ -411,7 +438,9 @@ function displayAdmissionForm(species){
 			form.reset();
 		});
 
+		form.appendChild(document.createElement('br'));
 		form.appendChild(submit);
+
  	document.getElementById('main').appendChild(form);
 	
 	
@@ -487,8 +516,14 @@ function UpdateAnimal(id){
 	xhr.onreadystatechange = function() {
   		if (xhr.readyState === 4 ) {
     		if ( xhr.status == 200 || xhr.status == 201 ) { // Ok or Created
-      			let data = JSON.parse(xhr.responseText);
-      			console.log(data);
+      			let jsonData =xhr.responseText;
+  				let result = document.createElement('div');
+  				let text = document.createElement('p');
+  				text.textContent = "Animal successfully updated!";
+
+  				clearMain();
+  				result.appendChild(text);
+  				document.getElementById('main').appendChild(result);
     		}
     		else {
       		console.error("POST request failed.");
@@ -500,8 +535,14 @@ function UpdateAnimal(id){
 	//check for release
 	let timestamp=null
 	if(document.getElementById('isReleased').checked){
-		timestamp = (new Date()).toLocaleDateString('fr-CA');
-		timestamp+='T00:00:00';
+		let dateString = (new Date()).toLocaleDateString('fr-CA');
+		let timeString = (new Date()).toLocaleTimeString();
+		timeString = timeString.slice(0, -3);
+		if(timeString.length<8){
+			timeString='0'+timeString;
+		}
+		timestamp=dateString+'T'+timeString;
+		console.log(timestamp);
 	}
 
 	// JavaScript data (object)
@@ -529,14 +570,12 @@ function deleteAnimal(id){
 	xhr.onreadystatechange = () => {
 	  if(xhr.readyState === 4){
 		  if(xhr.status === 204){
-			   // * On success, if a response was received parse the animals data
-  				//   and pass the animals object to displayAnimalList().
   				let jsonData =xhr.responseText;
   				let result = document.createElement('div');
   				let text = document.createElement('p');
   				text.textContent = "Animal successfully deleted";
 
-  				document.getElementById('main').textContent='';
+  				clearMain();
   				result.appendChild(text);
   				document.getElementById('main').appendChild(result);
 		  }
@@ -548,6 +587,10 @@ function deleteAnimal(id){
 	  }
   }
   xhr.send();
+}
+
+function clearMain(){
+	document.getElementById('main').textContent='';
 }
 
 
