@@ -1,1 +1,15 @@
-<p>admittals works!</p>
+<div>
+  <h2>recent admittals</h2>
+<div *ngFor="let animal of animals">
+  <h3>{{animal.nickname}}</h3>
+  <p *ngIf="animal.tag!='' && animal.tag!=null">tag: {{animal.tag}}</p>
+  <p *ngIf="animal.tag=='' || animal.tag==null">tag: -- </p>
+  <p *ngIf="animal.species!=null">{{animal.species.name}}</p>
+  <p *ngIF="animal.species===null">unknown</p>
+  <p>reason: {{animal.reason}}</p>
+  <p *ngIf="animal.bloodLead!=null">lead level: {{animal.bloodLead}}</p>
+</div>
+
+
+
+</div>

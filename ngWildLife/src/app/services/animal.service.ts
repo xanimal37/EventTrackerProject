@@ -23,4 +23,37 @@ export class AnimalService {
       })
     );
   };
+
+  releases(): Observable<Animal[]> {
+    return this.http.get<Animal[]>(this.url+"/releases").pipe(
+      catchError((err:any)=>{
+        console.log(err);
+        return throwError(
+          ()=> new Error('AnimalService.releases(): error retrieving recent releases: '+err)
+        );
+      })
+    );
+  };
+
+  admittals(): Observable<Animal[]> {
+    return this.http.get<Animal[]>(this.url+"/arrivals").pipe(
+      catchError((err:any)=>{
+        console.log(err);
+        return throwError(
+          ()=> new Error('AnimalService.admittals(): error retrieving recent arrivals: '+err)
+        );
+      })
+    );
+  };
+
+  show(id:number): Observable<Animal> {
+    return this.http.get<Animal>(this.url+"/"+id).pipe(
+      catchError((err:any)=>{
+        console.log(err);
+        return throwError(
+          ()=> new Error('AnimalService.show(): error retrieving animal by id: '+err)
+        );
+      })
+    );
+  };
 }
