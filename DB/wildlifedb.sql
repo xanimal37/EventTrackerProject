@@ -133,8 +133,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wildlifedb`;
-INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (1, 'White-tailed Deer', NULL, 'Odocoileus virginianus', 'reddish-brown coat in spring and summer; grayer in fall and winter; recognized by white on underside of tail', NULL, 1);
-INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (2 , 'American Toad', NULL, 'Anaxyrus americanus', NULL, NULL, 1);
+INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (1, 'White-tailed Deer', NULL, 'Odocoileus virginianus', 'reddish-brown coat in spring and summer; grayer in fall and winter; recognized by white on underside of tail', 'https://xanimal37.github.io/img/species1.jpg', 1);
+INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (2 , 'American Toad', NULL, 'Anaxyrus americanus', NULL, 'https://xanimal37.github.io/img/species2.jpg', 1);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (3, 'Gray Treefrog', 'Eastern Gray Treefrog; Northern Gray Treefrog', 'Dryophytes versicolor', NULL, NULL, 1);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (4, 'Spotted Salamander', NULL, 'Ambystoma maculatum', NULL, NULL, 1);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (5, 'American Bittern', NULL, 'Botaurus lentiginosus', NULL, NULL, 1);
@@ -169,12 +169,12 @@ INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `descriptio
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (34, 'European Starling', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (35, 'Fox Sparrow', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (36, 'Great Blue Herron', NULL, NULL, NULL, NULL, DEFAULT);
-INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (37, 'Great Horned Owl', NULL, NULL, NULL, NULL, DEFAULT);
+INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (37, 'Great Horned Owl', NULL, NULL, NULL, 'https://xanimal37.github.io/img/species37.jpg', DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (38, 'Green Heron', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (39, 'Hairy Woodpecker', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (40, 'Hermit Thrush', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (41, 'Hooded Merganser', NULL, NULL, NULL, NULL, DEFAULT);
-INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (42, 'House Sparrow', NULL, NULL, NULL, NULL, DEFAULT);
+INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (42, 'House Sparrow', NULL, NULL, NULL, 'https://xanimal37.github.io/img/species42.jpg', DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (43, 'House Wren', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (44, 'Least Sandpiper', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (45, 'Lincoln\'s Sparrow', NULL, NULL, NULL, NULL, DEFAULT);
@@ -218,10 +218,10 @@ INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `descriptio
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (83, 'Coyote', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (84, 'Deer Mouse', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (85, 'Eastern Chipmunk', NULL, NULL, NULL, NULL, DEFAULT);
-INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (86, 'Eastern Cottontail', NULL, NULL, NULL, NULL, DEFAULT);
+INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (86, 'Eastern Cottontail', NULL, NULL, NULL, 'https://xanimal37.github.io/img/species86.jpg', DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (87, 'Eastern Gray Squirrel', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (88, 'Gray Fox', NULL, NULL, NULL, NULL, DEFAULT);
-INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (89, 'Little Brown Bat', 'Little Brown Myotis', 'Myotis lucifugus', 'small, brown, mouse-eared bat', 'https://en.wikipedia.org/wiki/Little_brown_bat#/media/File:Little_Brown_Myotis_(cropped).JPG', 5);
+INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (89, 'Little Brown Bat', 'Little Brown Myotis', 'Myotis lucifugus', 'small, brown, mouse-eared bat', 'https://xanimal37.github.io/img/species89.jpg', 5);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (90, 'Meadow Jumping Mouse', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (91, 'Meadow Vole', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (92, 'Muskrat', NULL, NULL, NULL, NULL, DEFAULT);
@@ -231,8 +231,8 @@ INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `descriptio
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (96, 'Norway Rat', 'common rat; street rat; sewer rat; wharf rat', 'Rattus norvegicus', NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (97, 'Red Fox', NULL, 'Vulpes vulpes', NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (98, 'Red Squirrel', NULL, NULL, NULL, NULL, DEFAULT);
-INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (99, 'Snowshoe Hare', NULL, NULL, NULL, NULL, DEFAULT);
-INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (100, 'Southern Flying Squirrel', NULL, NULL, NULL, NULL, DEFAULT);
+INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (99, 'Snowshoe Hare', NULL, NULL, NULL, 'https://xanimal37.github.io/img/species99.jpg', DEFAULT);
+INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (100, 'Southern Flying Squirrel', NULL, NULL, NULL, 'https://xanimal37.github.io/img/species100.jpg', DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (101, 'Striped Skunk', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (102, 'Thirteen-lined Ground Squirrel', 'striped gopher', NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (103, 'Virginia Opossum', NULL, NULL, NULL, NULL, DEFAULT);
@@ -242,7 +242,7 @@ INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `descriptio
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (107, 'Eastern Fox Snake', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (108, 'Eastern Painted Turtle', NULL, NULL, NULL, NULL, DEFAULT);
 INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (109, 'Northern Water Snake', NULL, NULL, NULL, NULL, DEFAULT);
-INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (110, 'Wood Turtle', NULL, NULL, NULL, NULL, 3);
+INSERT INTO `species` (`id`, `name`, `alt_names`, `scientific_name`, `description`, `image_url`, `conservation_status_id`) VALUES (110, 'Wood Turtle', NULL, NULL, NULL, 'https://xanimal37.github.io/img/species110.jpg', 3);
 
 COMMIT;
 
@@ -252,12 +252,16 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wildlifedb`;
-INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (1, NULL, 'Crunchy', 'lead poisoning', 'eats rocks?', 28.1, '2023-03-14 13:00:00', '2023-03-18 14:30:00', 37);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (1, NULL, 'Crunchy', 'lead poisoning', 'will attack other birds', 28.1, '2023-03-14 13:00:00', '2023-03-18 14:30:00', 37);
 INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (2, NULL, 'Cutie Pie', 'broken leg', 'the cutest little brown bat EVER', NULL, '2023-02-28 12:00:00', NULL, 89);
-INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (3, NULL, 'Snarly', 'buck shot', 'takes a while to trust', 9.2, '2022-12-19 13:36:00', NULL, 110);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (3, '23-MN', 'Snarly', 'buck shot', 'takes a while to trust', 9.2, '2022-12-19 13:36:00', NULL, 110);
 INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (4, NULL, 'Piglet', 'territorial fight', 'likes to eat', 2.2, '2023-01-31 16:09:00', NULL, 42);
 INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (5, NULL, 'Sneaky', 'found during winter', NULL, 10.4, '2022-10-28 10:00:00', NULL, 100);
 INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (6, '324L', 'Bik', 'baby mom died', NULL, NULL, '2022-11-10 00:00:00', '2023-04-09 12:00:00', 86);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (7, NULL, 'Betty', 'couldn\'t eat', 'needs to be fed by hand', NULL, '2023-01-02 12:23:09', NULL, 99);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (8, NULL, 'Mik', 'abandoned, nest destroyed', NULL, NULL, '2023-02-03 04:00:00', NULL, 65);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (9, NULL, 'Lucky', 'hit by car; various injuries', 'malnourished', NULL, '2023-04-04 18:34:00', NULL, 1);
+INSERT INTO `animal` (`id`, `tag`, `nickname`, `reason`, `note`, `blood_lead`, `arrived`, `released`, `species_id`) VALUES (10, NULL, 'Xavier', 'fight with domestic dog', NULL, NULL, '2023-03-24 20:00:01', NULL, 2);
 
 COMMIT;
 

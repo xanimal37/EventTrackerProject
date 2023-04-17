@@ -41,7 +41,9 @@ This app lacks a front end and all results are formatted as JSON.
 - animal leaves
 
 ## Technologies Used
-- JAVA
+- Java
+- JavaScript
+- Angular/TypeScript
 - Spring Boot
 - Spring Data
 - postman
@@ -52,16 +54,23 @@ This app lacks a front end and all results are formatted as JSON.
 - git
 
 ## Lessons Learned
+### database
 - start with simple db, classes and methods and build
-- RESTART SPRING BOOT AFTER CHANGES
-- a field called "somethingANDsomething" will cause problems with Spring Data when attempting to name method findByAnimalIDAndDateAndTime()... renamed to "whenFed"
-- postman will do random variables with ${}
+### Spring
 - use @PathVariable(value=...) @DateTimeFormat with pattern
+- a field called "somethingANDsomething" will cause problems with Spring Data when attempting to name method findByAnimalIDAndDateAndTime()... renamed to "whenFed"
+- RESTART SPRING BOOT AFTER CHANGES
 - Spring Data JPA has no problem doing a query using LocalDateTime (I read on the internet that times can create problems but it seems to work ok. Might need more testing.)
 - can use date for range query
-- using VS outside of STS, STS doesn't register changes? nor does git. Switched to Sublime.
-- because XHR request is asynchronous, can not parse and save result to outside variable. result will be undefined. Instead, call another function to set or pass the parsed data.
 - send path id to send to SERVICE IMPL to map relationships
+- because XHR request is asynchronous, can not parse and save result to outside variable. result will be undefined. Instead, call another function to set or pass the parsed data.
+### Angular/TypeScript
+- can use BEHAVIOR  to pass data to sibling components or components with no relationship
+### Testing (postman)
+- postman will do random variables with ${}
+### git/version control
+- using VS outside of STS, STS doesn't register changes? nor does git. Switched to Sublime.
+
 
 ## Things to Improve
 - add enclosure and track cleaning/maintenance
