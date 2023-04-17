@@ -8,8 +8,6 @@ This project is the backend of an app that tracks animals handled wildlife rehab
 - what their blood lead level is when admitted (especially for birds but possibly other animals)
 - more tbd...
 
-This app lacks a front end and all results are formatted as JSON.
-
 ## Entities
 - Animal (CREATE, UPDATE, DELETE, GET BY ID, GET ALL, SEARCH BY NICKNAME, GET ALL ANIMALS OF SPECIES)
 -- three most recent arrivals
@@ -70,7 +68,6 @@ This app lacks a front end and all results are formatted as JSON.
 - postman will do random variables with ${}
 ### git/version control
 - using VS outside of STS, STS doesn't register changes? nor does git. Switched to Sublime.
-
 
 ## Things to Improve
 - add enclosure and track cleaning/maintenance
