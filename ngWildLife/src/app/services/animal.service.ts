@@ -56,4 +56,26 @@ export class AnimalService {
       })
     );
   };
+
+  update(animal: Animal):Observable<Animal> {
+    return this.http.put<Animal>(this.url + "/" + animal.id, animal).pipe(
+      catchError((err:any)=> {
+        console.log(err);
+        return throwError(
+          ()=>new Error("AnimalService.update(): error updating animal: "+err)
+        );
+      })
+    );
+  };
+
+  create(animal: Animal, speciesId: number): Observable<Animal> {
+    return this.http.post<Animal>(this.baseUrl+"api/species/"+speciesId+"/animals", animal).pipe(
+      catchError((err:any)=>{
+        console.log(err);
+        return throwError(
+          ()=>new Error('AnimalService.create(): error creating animal: '+err)
+        );
+      })
+    );
+    };
 }

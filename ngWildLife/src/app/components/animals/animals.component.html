@@ -1,2 +1,73 @@
-<p>animals works!</p>
-<p *ngFor="let animal of animals">{{animal.nickname}}</p>
+<h2>animals</h2>
+
+<!-- add an animal -->
+<div id="addAnimal">
+  <h3>add an animal</h3>
+  <form>
+    <input type="text" name="nickname" placeholder="nickname" [(ngModel)]="newAnimal.nickname"/><br />
+    <input type="text" name="reason" placeholder="reason" [(ngModel)]="newAnimal.reason"/><br />
+    <input type="text" name="note" placeholder="note" [(ngModel)]="newAnimal.note"/><br />
+    <input type="number" name="bloodLead" placeholder="0.0" [(ngModel)]="newAnimal.bloodLead"/><br />
+    <select [(ngModel)]="newAnimalSpeciesId" name="species">
+      <option *ngFor='let s of species' value="{{s.id}}">{{s.name}}</option>
+    </select><br>
+    <input type="submit" value="add animal" (click)="addAnimal(newAnimal,newAnimalSpeciesId)"/>
+
+  </form>
+</div>
+
+<!-- update an animal -->
+<div id="updateAnimal" *ngIf="editAnimal!=null">
+  <h3>update animal</h3>
+  <form>
+    nickname: <input type="text" name="nickname" [(ngModel)]="editAnimal.nickname"/>
+    reason: <input type="text" name="reason" [(ngModel)]="editAnimal.reason"/>
+    <button (click)="editAnimal=null">cancel</button>
+    <button (click)="updateAnimal(editAnimal)">save</button>
+  </form>
+</div>
+
+<!-- show the details of an animal and either close or edit -->
+<div id="viewAnimal" *ngIf="selectedAnimal && !editAnimal">
+  <h3>animal detail</h3>
+  <img [src]="selectedAnimal.species?.imageURL"/>
+  <p>nickname: {{selectedAnimal.nickname}}</p>
+  <p>tag: {{selectedAnimal.tag}}</p>
+  <p>species: {{selectedAnimal.species?.name}}</p>
+  <p>conservation status: {{selectedAnimal.species?.conservationStatus?.status}}</p>
+  <p>reason: {{selectedAnimal.reason}}</p>
+  <p>note {{selectedAnimal.note}}</p>
+  <button (click)="displayAnimals()">close</button>
+  <button (click)="setEditAnimal()">edit</button>
+  <button *ngIf="selectedAnimal.released==null" (click)="releaseAnimal()">release</button>
+</div>
+
+<!-- show table of all animals -->
+<div id="animals" *ngIf="selectedAnimal==null">
+  <h3>animals</h3>
+  <form>
+    <!-- button here to open add animal dialogue -->
+  </form>
+<table>
+  <tr>
+    <th>select</th>
+    <th>nickname</th>
+    <th>reason</th>
+    <th>species</th>
+    <th>lead level</th>
+    <th>admitted</th>
+    <th>released</th>
+  </tr>
+<tr *ngFor="let animal of animals">
+  <td><button (click)="selectedAnimal=animal">o</button></td>
+  <td>{{animal.nickname}}</td>
+  <td>{{animal.reason}}</td>
+  <td>{{animal.species?.name}}</td>
+  <td>{{animal.bloodLead}}</td>
+  <td>{{animal.arrived}}</td>
+  <td>{{animal.released}}</td>
+</tr>
+</table>
+</div>
+
+

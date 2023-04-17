@@ -11,11 +11,11 @@ import { FaqComponent } from './components/faq/faq.component';
 import { AnimalsComponent } from './components/animals/animals.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './components/footer/footer.component';
-import { AnimalComponent } from './components/animal/animal.component';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { AnimalService } from './services/animal.service';
 import { StatusComponent } from './components/status/status.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +27,8 @@ import { StatusComponent } from './components/status/status.component';
     FaqComponent,
     AnimalsComponent,
     FooterComponent,
-    AnimalComponent,
-    StatusComponent
+    StatusComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
