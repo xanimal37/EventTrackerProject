@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import com.skilldistillery.wildlife.services.SpeciesService;
 
 @RestController
 @RequestMapping("api")
+@CrossOrigin({"*", "http://localhost/"})
 public class AnimalController {
 
 	@Autowired
@@ -53,7 +55,7 @@ public class AnimalController {
 			res.setStatus(201);
 			//StringBuffer url = req.getRequestURL(); // define as stringbuffer
 			//url.append("/").append(animal.getId()); // append id to url so will show user the post url
-			res.setHeader("Location", "http://localhost:8083"); // location
+			//res.setHeader("Location", "http://localhost:8083"); // location
 		}
 
 		catch (Exception e) {
