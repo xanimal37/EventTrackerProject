@@ -33,3 +33,8 @@ a:hover {
 img {
   max-width:340px;
 }
+
+.highLead {
+  color:darkred;
+  font-weight: bold;
+}

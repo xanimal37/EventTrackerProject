@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Animal } from '../models/animal';
 import { Observable, catchError, throwError } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import {environment} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,9 @@ export class AnimalService {
   private animals$ = new BehaviorSubject<Animal[]>([]);
   allAnimals$ = this.animals$.asObservable();
 
-  private baseUrl = 'http://localhost:8083/'; // adjust port to match server
-  private url = this.baseUrl + 'api/animals'; // change 'todos' to your API path
+  //private baseUrl = 'http://localhost:8083/'; // adjust port to match server
+  //private url = this.baseUrl + 'api/animals'; // change 'todos' to your API path
+  private url = environment.baseUrl+'api/animals';
 
   constructor(private http: HttpClient) { }
 
@@ -78,7 +80,7 @@ export class AnimalService {
   };
 
   create(animal: Animal, speciesId: number): Observable<Animal> {
-    return this.http.post<Animal>(this.baseUrl+"api/species/"+speciesId+"/animals", animal).pipe(
+    return this.http.post<Animal>(environment.baseUrl+"api/species/"+speciesId+"/animals", animal).pipe(
       catchError((err:any)=>{
         console.log(err);
         return throwError(

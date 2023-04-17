@@ -64,12 +64,15 @@ This project is the backend of an app that tracks animals handled wildlife rehab
 - because XHR request is asynchronous, can not parse and save result to outside variable. result will be undefined. Instead, call another function to set or pass the parsed data.
 ### Angular/TypeScript
 - can use BEHAVIOR  to pass data to sibling components or components with no relationship
+- can't style background on dynamically created elements - this seemst to be an existing bug? Will explore workaround options.
 ### Testing (postman)
 - postman will do random variables with ${}
 ### git/version control
 - using VS outside of STS, STS doesn't register changes? nor does git. Switched to Sublime.
 
 ## Things to Improve
+- add more filter/view options
+- implement feedings are care trackers
 - add enclosure and track cleaning/maintenance
 - add medical care tracking table
 - more updates

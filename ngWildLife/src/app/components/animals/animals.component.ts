@@ -177,4 +177,13 @@ export class AnimalsComponent implements OnInit{
     }
   }
 }
+
+getLeadClass(animal:Animal):string {
+  if(animal.bloodLead>10){
+    return 'highLead';
+  }
+  else {
+    return '';
+  }
+}
 }

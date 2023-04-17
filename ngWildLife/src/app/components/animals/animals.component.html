@@ -25,7 +25,7 @@
     reason: <input type="text" name="reason" [(ngModel)]="editAnimal.reason"/><br>
     note: <input type="text" name="note" placeholder="note" [(ngModel)]="editAnimal.note"/><br />
     lead level: <input type="number" name="bloodLead" placeholder="0.0" [(ngModel)]="editAnimal.bloodLead"/><br />
-    <button (click)="editAnimal=null" class="btn btn-dark">cancel</button>
+    <button (click)="editAnimal=null" class="btn btn-dark m-1">cancel</button>
     <button *ngIf="editAnimal?.released===null" (click)="releaseAnimal(editAnimal)" class="btn btn-dark m-1">release</button>
     <button (click)="updateAnimal(editAnimal)" class="btn btn-dark m-1">save</button>
   </form>
@@ -35,12 +35,12 @@
 <div id="viewAnimal" *ngIf="selectedAnimal && !editAnimal">
   <h3>animal detail</h3>
   <img [src]="selectedAnimal.species?.imageURL"/>
-  <p>nickname: {{selectedAnimal.nickname}}</p>
+  <h4>{{selectedAnimal.nickname}}</h4>
   <p>tag: {{selectedAnimal.tag}}</p>
   <p>species: {{selectedAnimal.species?.name}}</p>
   <p [ngClass]="getClass(selectedAnimal)">conservation status: {{selectedAnimal.species?.conservationStatus?.status}}</p>
   <p>reason: {{selectedAnimal.reason}}</p>
-  <p>note {{selectedAnimal.note}}</p>
+  <p>note: {{selectedAnimal.note}}</p>
   <button (click)="displayAnimals()" class="btn btn-dark m-1">close</button>
   <button (click)="setEditAnimal()" class="btn btn-dark m-1">edit</button>
 </div>
@@ -62,11 +62,11 @@
     <th>released</th>
   </tr>
 <tr *ngFor="let animal of animals">
-  <td><button class="btn" (click)="selectedAnimal=animal">{{animal.id}}</button></td>
+  <td><button class="btn btn-outline-dark" (click)="selectedAnimal=animal">&#8594;</button></td>
   <td>{{animal.nickname}}</td>
   <td>{{animal.reason}}</td>
   <td>{{animal.species?.name}}</td>
-  <td>{{animal.bloodLead}}</td>
+  <td> <p [ngClass]="getLeadClass(animal)">{{animal.bloodLead}}</p></td>
   <td>{{animal.arrived | date:'shortDate'}}</td>
   <td>{{animal.released | date:'shortDate'}}</td>
 </tr>
