@@ -1,7 +1,7 @@
 <h2>animals</h2>
 
 <!-- add an animal -->
-<div id="addAnimal">
+<div id="addAnimal" *ngIf="addingAnimal">
   <h3>add an animal</h3>
   <form>
     <input type="text" name="nickname" placeholder="nickname" [(ngModel)]="newAnimal.nickname"/><br />
@@ -20,8 +20,10 @@
 <div id="updateAnimal" *ngIf="editAnimal!=null">
   <h3>update animal</h3>
   <form>
-    nickname: <input type="text" name="nickname" [(ngModel)]="editAnimal.nickname"/>
-    reason: <input type="text" name="reason" [(ngModel)]="editAnimal.reason"/>
+    nickname: <input type="text" name="nickname" [(ngModel)]="editAnimal.nickname"/><br>
+    reason: <input type="text" name="reason" [(ngModel)]="editAnimal.reason"/><br>
+    note: <input type="text" name="note" placeholder="note" [(ngModel)]="editAnimal.note"/><br />
+    lead level: <input type="number" name="bloodLead" placeholder="0.0" [(ngModel)]="newAnimal.bloodLead"/><br />
     <button (click)="editAnimal=null">cancel</button>
     <button *ngIf="editAnimal?.released===null" (click)="releaseAnimal(editAnimal)">release</button>
     <button (click)="updateAnimal(editAnimal)">save</button>
@@ -43,10 +45,10 @@
 </div>
 
 <!-- show table of all animals -->
-<div id="animals" *ngIf="selectedAnimal==null">
+<div id="animals" *ngIf="selectedAnimal==null && editAnimal==null && addingAnimal==false">
   <h3>animals</h3>
   <form>
-    <!-- button here to open add animal dialogue -->
+    <button (click)="addingAnimal=true">add animal</button>
   </form>
 <table>
   <tr>
@@ -64,8 +66,8 @@
   <td>{{animal.reason}}</td>
   <td>{{animal.species?.name}}</td>
   <td>{{animal.bloodLead}}</td>
-  <td>{{animal.arrived}}</td>
-  <td>{{animal.released}}</td>
+  <td>{{animal.arrived | date:'shortDate'}}</td>
+  <td>{{animal.released | date:'shortDate'}}</td>
 </tr>
 </table>
 </div>

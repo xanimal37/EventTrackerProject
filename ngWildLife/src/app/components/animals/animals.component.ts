@@ -4,6 +4,7 @@ import { Animal } from 'src/app/models/animal';
 import { Species } from 'src/app/models/species';
 import { AnimalService } from 'src/app/services/animal.service';
 import { SpeciesServiceService } from 'src/app/services/species-service.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-animals',
@@ -20,11 +21,13 @@ export class AnimalsComponent implements OnInit{
   newAnimalSpeciesId: number=0;
   selectedAnimal: Animal | null = null;
   editAnimal: Animal | null = null;
+  addingAnimal: boolean = false;
 
   constructor(
     private animalService:AnimalService,
     private speciesService:SpeciesServiceService,
     private route: ActivatedRoute,
+    private datePipe: DatePipe,
     private router: Router){}
 
   ngOnInit(): void {
@@ -71,9 +74,6 @@ export class AnimalsComponent implements OnInit{
       {
         next: (species) => {
           this.species = species;
-          for(let s of species){
-            console.log(s.conservationStatus?.status);
-          }
         },
         error: (problem) => {
           console.error('AnimalsListHttpComponent.loadSpecies(): error retreiving species:');
@@ -107,6 +107,7 @@ export class AnimalsComponent implements OnInit{
       //coming back from post method in controller
       //anything depending on asynchronous operations (needs server response)
       this.newAnimal=new Animal();
+      this.addingAnimal=false;
       this.loadAnimals();
       },
       error: (fail) => {
