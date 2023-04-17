@@ -5,6 +5,7 @@ import { Species } from 'src/app/models/species';
 import { AnimalService } from 'src/app/services/animal.service';
 import { SpeciesServiceService } from 'src/app/services/species-service.service';
 import { DatePipe } from '@angular/common';
+import { StatusComponent } from '../status/status.component';
 
 @Component({
   selector: 'app-animals',
@@ -60,6 +61,7 @@ export class AnimalsComponent implements OnInit{
       {
         next: (animals) => {
           this.animals = animals;
+          this.animalService.setAnimals(animals);
         },
         error: (problem) => {
           console.error('AnimalsListHttpComponent.reload(): error retreiving animals:');
@@ -67,6 +69,7 @@ export class AnimalsComponent implements OnInit{
         }
       }
     );
+
   }
 
   loadSpecies():void {

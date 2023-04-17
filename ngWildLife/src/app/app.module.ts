@@ -16,6 +16,7 @@ import { DatePipe } from '@angular/common';
 import { AnimalService } from './services/animal.service';
 import { StatusComponent } from './components/status/status.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { SpeciesComponent } from './components/species/species.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     AnimalsComponent,
     FooterComponent,
     StatusComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    SpeciesComponent
   ],
   imports: [
     BrowserModule,

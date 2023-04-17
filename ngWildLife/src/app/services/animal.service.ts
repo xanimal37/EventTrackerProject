@@ -2,16 +2,25 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Animal } from '../models/animal';
 import { Observable, catchError, throwError } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnimalService {
 
+  //observable variabes for updating status bar
+  private animals$ = new BehaviorSubject<Animal[]>([]);
+  allAnimals$ = this.animals$.asObservable();
+
   private baseUrl = 'http://localhost:8083/'; // adjust port to match server
   private url = this.baseUrl + 'api/animals'; // change 'todos' to your API path
 
   constructor(private http: HttpClient) { }
+
+  setAnimals(animals: Animal[]) {
+    this.animals$.next(animals);
+  }
 
   index(): Observable<Animal[]> {
     return this.http.get<Animal[]>(this.url).pipe(
