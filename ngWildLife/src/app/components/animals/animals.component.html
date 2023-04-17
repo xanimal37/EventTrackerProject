@@ -23,6 +23,7 @@
     nickname: <input type="text" name="nickname" [(ngModel)]="editAnimal.nickname"/>
     reason: <input type="text" name="reason" [(ngModel)]="editAnimal.reason"/>
     <button (click)="editAnimal=null">cancel</button>
+    <button *ngIf="editAnimal?.released===null" (click)="releaseAnimal(editAnimal)">release</button>
     <button (click)="updateAnimal(editAnimal)">save</button>
   </form>
 </div>
@@ -39,7 +40,6 @@
   <p>note {{selectedAnimal.note}}</p>
   <button (click)="displayAnimals()">close</button>
   <button (click)="setEditAnimal()">edit</button>
-  <button *ngIf="selectedAnimal.released==null" (click)="releaseAnimal()">release</button>
 </div>
 
 <!-- show table of all animals -->

@@ -95,7 +95,7 @@ export class AnimalsComponent implements OnInit{
         this.loadAnimals();
       },
       error: (fail) => {
-        console.error('Error updating todo.');
+        console.error('Error updating animal.');
         console.error(fail);
       }
     });
@@ -116,9 +116,32 @@ export class AnimalsComponent implements OnInit{
     });
     }
 
-    releaseAnimal(){
-      let dateTime = new Date();
-      console.log(dateTime);
+    releaseAnimal(animal: Animal, selectThis: boolean=true){  //this is the animal that is being edited
+      let dateString = (new Date()).toLocaleDateString('fr-CA');
+		let timeString = (new Date()).toLocaleTimeString();
+		timeString = timeString.slice(0, -3);
+		if(timeString.length<8){
+			timeString='0'+timeString;
+		}
+		let timestamp=dateString+'T'+timeString;
+		console.log(timestamp);
+
+    animal.released=timestamp;
+
+      this.animalService.update(animal).subscribe({
+        next:(updatedAnimal)=>{
+          //things we want to do on success
+          this.editAnimal=null;
+          if(selectThis){
+          this.selectedAnimal=updatedAnimal;
+        }
+          this.loadAnimals();
+        },
+        error: (fail) => {
+          console.error('Error updating animal.');
+          console.error(fail);
+        }
+      });
     }
 
   displayAnimals(){
