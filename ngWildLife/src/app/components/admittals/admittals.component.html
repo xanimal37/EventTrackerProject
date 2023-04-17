@@ -1,15 +1,12 @@
 <div>
   <h2>recent admittals</h2>
-<div *ngFor="let animal of animals">
-  <h3>{{animal.nickname}}</h3>
-  <p *ngIf="animal.tag!='' && animal.tag!=null">tag: {{animal.tag}}</p>
-  <p *ngIf="animal.tag=='' || animal.tag==null">tag: -- </p>
-  <p *ngIf="animal.species!=null">{{animal.species.name}}</p>
-  <p *ngIf="animal.species===null">unknown</p>
+<div class="card m-3" *ngFor="let animal of animals">
+  <div class="card-body">
+  <h3 class="card-title">{{animal.nickname}}</h3>
+  <p>{{animal.species!.name}}</p>
   <p>reason: {{animal.reason}}</p>
-  <p *ngIf="animal.bloodLead!=null">lead level: {{animal.bloodLead}}</p>
+  <p>lead level: {{animal.bloodLead}}</p>
+  <p>admitted: {{animal.arrived | date:'shortDate'}}</p>
 </div>
-
-
-
+</div>
 </div>

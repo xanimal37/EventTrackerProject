@@ -36,7 +36,7 @@ export class StatusComponent implements OnInit{
         if(a.released==null){
           this.currentAnimals++;
         }
-        if(a.bloodLead>1){
+        if(a.bloodLead>10){
           this.currentAnimalsHighLeadLevel++;
         }
       }

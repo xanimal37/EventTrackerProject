@@ -1,13 +1,12 @@
 <div>
   <h2>recent releases</h2>
-<div *ngFor="let animal of animals">
-  <h3>{{animal.nickname}}</h3>
-  <p>id:</p>
-  <p>species:</p>
-  <p>reason:</p>
-  <p>lead level:</p>
+<div class="card m-3" *ngFor="let animal of animals">
+  <div class="card-body">
+  <h3 class="card-title">{{animal.nickname}}</h3>
+  <p>{{animal.species!.name}}</p>
+  <p>reason: {{animal.reason}}</p>
+  <p>lead level: {{animal.bloodLead}}</p>
+  <p>released: {{animal.released | date:'shortDate'}}</p>
 </div>
-
-
-
+</div>
 </div>

@@ -4,14 +4,15 @@
 <div id="addAnimal" *ngIf="addingAnimal">
   <h3>add an animal</h3>
   <form>
-    <input type="text" name="nickname" placeholder="nickname" [(ngModel)]="newAnimal.nickname"/><br />
-    <input type="text" name="reason" placeholder="reason" [(ngModel)]="newAnimal.reason"/><br />
-    <input type="text" name="note" placeholder="note" [(ngModel)]="newAnimal.note"/><br />
-    <input type="number" name="bloodLead" placeholder="0.0" [(ngModel)]="newAnimal.bloodLead"/><br />
-    <select [(ngModel)]="newAnimalSpeciesId" name="species">
+    nickname: <input type="text" name="nickname" placeholder="nickname" [(ngModel)]="newAnimal.nickname"/><br />
+    reason admitted: <input type="text" name="reason" placeholder="reason" [(ngModel)]="newAnimal.reason"/><br />
+    note: <input type="text" name="note" placeholder="note" [(ngModel)]="newAnimal.note"/><br />
+    lead level: <input type="number" name="bloodLead" placeholder="0.0" [(ngModel)]="newAnimal.bloodLead"/><br />
+    species: <select [(ngModel)]="newAnimalSpeciesId" name="species">
       <option *ngFor='let s of species' value="{{s.id}}">{{s.name}}</option>
     </select><br>
-    <input type="submit" value="add animal" (click)="addAnimal(newAnimal,newAnimalSpeciesId)"/>
+    <input class="btn btn-dark m-1" type="submit" value="add animal" (click)="addAnimal(newAnimal,newAnimalSpeciesId)"/>
+    <input class="btn btn-dark m-1" type="submit" value="cancel" (click)="addingAnimal=false"/>
 
   </form>
 </div>
@@ -23,10 +24,10 @@
     nickname: <input type="text" name="nickname" [(ngModel)]="editAnimal.nickname"/><br>
     reason: <input type="text" name="reason" [(ngModel)]="editAnimal.reason"/><br>
     note: <input type="text" name="note" placeholder="note" [(ngModel)]="editAnimal.note"/><br />
-    lead level: <input type="number" name="bloodLead" placeholder="0.0" [(ngModel)]="newAnimal.bloodLead"/><br />
-    <button (click)="editAnimal=null">cancel</button>
-    <button *ngIf="editAnimal?.released===null" (click)="releaseAnimal(editAnimal)">release</button>
-    <button (click)="updateAnimal(editAnimal)">save</button>
+    lead level: <input type="number" name="bloodLead" placeholder="0.0" [(ngModel)]="editAnimal.bloodLead"/><br />
+    <button (click)="editAnimal=null" class="btn btn-dark">cancel</button>
+    <button *ngIf="editAnimal?.released===null" (click)="releaseAnimal(editAnimal)" class="btn btn-dark m-1">release</button>
+    <button (click)="updateAnimal(editAnimal)" class="btn btn-dark m-1">save</button>
   </form>
 </div>
 
@@ -37,20 +38,20 @@
   <p>nickname: {{selectedAnimal.nickname}}</p>
   <p>tag: {{selectedAnimal.tag}}</p>
   <p>species: {{selectedAnimal.species?.name}}</p>
-  <p>conservation status: {{selectedAnimal.species?.conservationStatus?.status}}</p>
+  <p [ngClass]="getClass(selectedAnimal)">conservation status: {{selectedAnimal.species?.conservationStatus?.status}}</p>
   <p>reason: {{selectedAnimal.reason}}</p>
   <p>note {{selectedAnimal.note}}</p>
-  <button (click)="displayAnimals()">close</button>
-  <button (click)="setEditAnimal()">edit</button>
+  <button (click)="displayAnimals()" class="btn btn-dark m-1">close</button>
+  <button (click)="setEditAnimal()" class="btn btn-dark m-1">edit</button>
 </div>
 
 <!-- show table of all animals -->
-<div id="animals" *ngIf="selectedAnimal==null && editAnimal==null && addingAnimal==false">
+<div id="animals" class="container-fluid" *ngIf="selectedAnimal==null && editAnimal==null && addingAnimal==false">
   <h3>animals</h3>
   <form>
-    <button (click)="addingAnimal=true">add animal</button>
+    <button (click)="addingAnimal=true" class="btn btn-dark m-1">add animal</button>
   </form>
-<table>
+<table class="table table-striped">
   <tr>
     <th>select</th>
     <th>nickname</th>
@@ -61,7 +62,7 @@
     <th>released</th>
   </tr>
 <tr *ngFor="let animal of animals">
-  <td><button (click)="selectedAnimal=animal">o</button></td>
+  <td><button class="btn" (click)="selectedAnimal=animal">{{animal.id}}</button></td>
   <td>{{animal.nickname}}</td>
   <td>{{animal.reason}}</td>
   <td>{{animal.species?.name}}</td>

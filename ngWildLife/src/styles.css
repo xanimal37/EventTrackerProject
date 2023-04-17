@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Josefin Sans';
+  padding:.2em;
+}
+
+h2 {
+  width:100%;
+  background-color: black;
+  color:white;
+}
+
+a {
+  color:olivedrab;
+}
+
+a:hover {
+  color:darkolivegreen;
+}
+
+.safe{
+  color:olive;
+}
+
+.concerned {
+  color:orange;
+}
+
+.danger {
+  color:darkred;
+}

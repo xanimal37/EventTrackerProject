@@ -1,1 +1,14 @@
-<p>species works!</p>
+<div>
+  <h2>species index</h2>
+  <div class="card" *ngFor="let s of species">
+    <div class="card-body">
+    <h3 class="card-title">{{s.name}}</h3>
+    <img [src]="s.imageURL"/>
+    <p><em>{{s.scientificName}}</em></p>
+    <p [ngClass]="getClass(s)">{{s.conservationStatus?.status}}</p>
+    <p [ngClass]="getClass(s)">{{s.conservationStatus?.statusCode}}</p>
+  </div>
+  </div>
+</div>
+
+

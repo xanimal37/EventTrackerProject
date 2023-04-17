@@ -1,3 +1,4 @@
+import { ConservationStatus } from './../../models/conservation-status';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Animal } from 'src/app/models/animal';
@@ -158,4 +159,22 @@ export class AnimalsComponent implements OnInit{
     this.editAnimal=this.selectedAnimal;
   }
 
+  //classes based on conservation status
+  getClass(animal:Animal):string {
+    let statusId:number | undefined = animal.species?.conservationStatus?.id;
+    if(typeof statusId==='undefined'){
+      return '';
+    }
+    else {
+    if(statusId<3){
+      return 'safe';
+    }
+    else if(statusId<6){
+      return 'concerned';
+    }
+    else {
+      return 'danger';
+    }
+  }
+}
 }
